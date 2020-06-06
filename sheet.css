@@ -7,13 +7,12 @@
 
 /*this shows the tab content when the appropriate input field is selected*/
 .charsheet input.sheet-tab1:checked ~ div.sheet-section-core,
-.charsheet input.sheet-tab2:checked ~ div.sheet-section-gear,
-.charsheet input.sheet-tab3:checked ~ div.sheet-section-advancements,
-.charsheet input.sheet-tab4:checked ~ div.sheet-section-npcsandminions,
+.charsheet input.sheet-tab2:checked ~ div.sheet-section-skills,
+.charsheet input.sheet-tab3:checked ~ div.sheet-section-gear,
+.charsheet input.sheet-tab4:checked ~ div.sheet-section-advancements,
 .charsheet input.sheet-tab5:checked ~ div.sheet-section-journal,
-.charsheet input.sheet-tab6:checked ~ div.sheet-section-vehicles,
-.charsheet input.sheet-tab7:checked ~ div.sheet-section-psykana,
-.charsheet input.sheet-tab8:checked ~ div.sheet-section-social {
+.charsheet input.sheet-tab6:checked ~ div.sheet-section-psykana,
+.charsheet input.sheet-tab7:checked ~ div.sheet-section-social {
 	display: block;
 }
 
@@ -61,14 +60,13 @@
 .charsheet input.sheet-tab5:checked + span.sheet-tab5,
 .charsheet input.sheet-tab6:checked + span.sheet-tab6,
 .charsheet input.sheet-tab7:checked + span.sheet-tab7,
-.charsheet input.sheet-tab8:checked + span.sheet-tab8,
 .charsheet input.sheet-tab99:checked + span.sheet-tab99 {
     background: #6d131b;
     color: #eaeaea;
 	border-radius: 35px;
 }
 
-/* CSS Reset */{}
+/* CSS Reset */
 .charsheet .sheet-wrapper div, .charsheet .sheet-wrapper span, .charsheet .sheet-wrapper span,
 .charsheet .sheet-wrapper h1, .charsheet .sheet-wrapper h2, .charsheet .sheet-wrapper h3, .charsheet .sheet-wrapper h4, .charsheet .sheet-wrapper h5, .charsheet .sheet-wrapper h6, .charsheet .sheet-wrapper p,
 .charsheet .sheet-wrapper table, .charsheet .sheet-wrapper caption, .charsheet .sheet-wrapper tbody, .charsheet .sheet-wrapper tfoot, .charsheet .sheet-wrapper thead, .charsheet .sheet-wrapper tr, .charsheet .sheet-wrapper th, .charsheet .sheet-wrapper td {
@@ -134,8 +132,7 @@
     background-color: rgba(212, 2, 15, 0.85);
     border-color: #ff0000;
 }
-.charsheet .sheet-wrapper .sheet-hider input[type=checkbox]:checked ~ .sheet-btn {
-}
+
 .charsheet .sheet-wrapper button[type="roll"] span,
 .charsheet .sheet-wrapper button[type="roll"] input {
 	height:24px;
@@ -153,8 +150,7 @@
 	font-weight:700;
 }
 
-.charsheet .sheet-wrapper button[type="roll"] input {
-}
+
 .charsheet .sheet-wrapper button[type="roll"]:hover span,
 .charsheet .sheet-wrapper button[type="roll"]:hover input {
 color: white;
@@ -213,6 +209,7 @@ border: none;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	-webkit-writing-mode: horizontal-tb;
+	writing-mode: horizontal-tb;
 }
 
 .charsheet .sheet-wrapper input, .charsheet .sheet-wrapper select, .charsheet .sheet-wrapper input[type="number"] {
@@ -253,6 +250,7 @@ border: none;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	-webkit-writing-mode: horizontal-tb;
+	writing-mode: horizontal-tb;
 }
 
 .charsheet .sheet-wrapper input:not([type='checkbox']) {
@@ -575,9 +573,6 @@ background-color: #DBB0B1;
 	text-align:center;
 }
 
-.charsheet .sheet-wrapper .sheet-footer td {
-}
-
 .charsheet .sheet-wrapper .sheet-innerfooter {
 	display:inline-block;
 	border:inherit;
@@ -765,6 +760,7 @@ input:focus, textarea:focus
 
 .charsheet .sheet-wrapper .sheet-charmotive1[type="text"]  {
     -webkit-box-shadow: none;
+    box-shadow: none;
     text-align: center;
     font-size: 20px;
     font-style: italic;
@@ -796,10 +792,8 @@ input:focus, textarea:focus
 }
 
 .charsheet .sheet-wrapper .sheet-misblock textarea {
-    height: 20px;
     resize: none;
     display: inline;
-    width: 86%;
 }
 
 /*=== Inquisitorial Dataslate for Missions ===*/
@@ -945,6 +939,7 @@ input:focus, textarea:focus
   left: 1px; 
   top: -29px;
   -webkit-transition: background-color .17s linear;
+  transition: background-color .17s linear;
 }
 .sheet-secondarytab [type=radio] {
   display: none;   
@@ -959,6 +954,7 @@ input:focus, textarea:focus
   padding: 5px !important;
   border: 1px solid #ccc; 
   -webkit-transition: opacity .6s linear;
+  transition: opacity .6s linear;
   opacity: 0;
 }
 [type=radio]:checked ~ span {
@@ -982,7 +978,7 @@ input:focus, textarea:focus
 
 .charsheet .sheet-wrapper .sheet-socialitem input[type="number"] {
 	text-align:center;
-	}
+}
 	
 .charsheet .sheet-wrapper .sheet-socialspan span{
     font-weight: bold;
