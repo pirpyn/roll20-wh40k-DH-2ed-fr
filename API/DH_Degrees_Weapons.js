@@ -54,13 +54,14 @@ var Roll40k = Roll40k || (function(){
     /** Interpret the chat commands. **/
     on('chat:message', function (msg) {
         'use strict';
-        var cmdName = '!roll40k ';
+        var cmdName = '!roll40k';
         if (msg.type === 'api' && msg.content.indexOf(cmdName) !== -1) {
             let content = processInlinerolls(msg);
             var paramArray = content.slice(cmdName.length).split(',');
             if (paramArray.length !== 3) {
                 sendChat(msg.who, '/w ' + msg.who + ' You must specify three comma-separated ' +
-                'parameters for the !roll40k command.');
+                'parameters for the !roll40k command.<br>'+
+                '`!roll40k [tokenName], [attributeValue], [ModifierValue]');
             }
             else {
                 var result = rollResultForRoll40k(paramArray[0].trim(),

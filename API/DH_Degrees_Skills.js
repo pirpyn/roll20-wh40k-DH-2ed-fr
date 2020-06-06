@@ -4,19 +4,19 @@
  * checks.
  *
  * The following commands is used:
- * !skill40k [tokenName], [attributeValue], [skillBonus1], [skillBonus2], [skillBonus3], [skillBonus4], [ModifierValue]
+ * !skill40k [speaker_name], [tokenName], [attributeValue], [skillBonus1], [skillBonus2], [skillBonus3], [skillBonus4], [ModifierValue]
  *
  * It is expected that the following bonus are included based on the skill level of the character:
- * skillBonus1 = 20 or 0, if known or untrained
+ * skillBonus1 = 10 or 0, if known
  * skillBonus2 = 10 or 0, if trained or less than trained
  * skillBonus3 = 10 or 0, if experienced or less than experienced
  * skillBonus4 = 10 or 0, if veteran or less than veteran
  *
  * Example:
- * /em @{character_name} makes a known Acrobatics skill check!
- * !skill40k @{character_name} Acrobatic Skill,@{Agility},20,0,0,0,?{Total Modifiers|0}
+ * !skill40k @{character_name},Acrobatic Skill,@{Agility},20,0,0,0,?{Total Modifiers|0}
  *
  * This script was written by Jack D on Roll20 Forums at https://app.roll20.net/forum/post/4607859/help-dark-heresy-2nd-edition-api
+ * It was modified by Pierre P
  *
  **/
 var en = {
@@ -149,46 +149,5 @@ on('chat:message', function (msg) {
             sendChat(paramArray[0].trim(), result);
             //log(`sendChat(${msg.who},${result})`);
         }
-    }
-});
-
-on('chat:message', function (msg) {
-    'use strict';
-    var cmdName = '!charac40k';
-
-    function createBtnForCharac (char_symb,char_name,char_attribute) {
-        var token = msg.who;
-        var html = '';
-        html = 
-            '<tr>'
-                +'<td>'
-                    +'['+char_symb+']'
-                    +'(!skill40k @{'+token+'|character_name},'+ char_name+',@{'+token+'|'+char_attribute+'},-1,0,0,0,?{Total Modifiers|0})' 
-                +'</td>'
-                +'<td>'
-                    +char_name
-                +'</td>'
-            +'</tr>'
-        ;
-        return html;  
-    };
-
-
-    if (msg.type === 'api' && msg.content.indexOf(cmdName) !== -1) {
-    sendChat(msg.who,
-        '/w '+ msg.who + ' <table>'
-        + createBtnForCharac('CC ','Capacité de Combat','WeaponSkill')
-        + createBtnForCharac('CT ','Capacité de Tir','BallisticSkill')
-        + createBtnForCharac('F  ','Force','Strength')
-        + createBtnForCharac('E  ','Endurance','Toughness')
-        + createBtnForCharac('AG ','Agilité','Agility')
-        + createBtnForCharac('INT','Intelligence','Intelligence')
-        + createBtnForCharac('PER','Perception','Perception')
-        + createBtnForCharac('FM ','Force Mentale','Willpower')
-        + createBtnForCharac('SOC','Social','Fellowship')
-        ,
-        null,
-        {noarchive:true}
-    );
     }
 });
