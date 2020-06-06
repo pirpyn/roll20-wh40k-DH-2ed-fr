@@ -326,6 +326,20 @@ border: none;
 	margin-right: 0 !important;
 }
 
+.charsheet .sheet-wrapper .sheet-9colrow .sheet-col {
+	width: calc(11% - 5px) !important;
+	margin-right: 1px !important;
+}
+
+.charsheet .sheet-wrapper .sheet-9colrow .sheet-col .sheet-2colrow .sheet-col {
+	width: calc(11% - 5px) !important;
+	margin-right: 1px !important;
+}
+
+.charsheet .sheet-wrapper .sheet-9colrow .sheet-col:last-child {
+	margin-right: 0 !important;
+}
+
 .charsheet .sheet-wrapper .sheet-1colrow .sheet-col {
 	width: calc(100% - 3px) !important;
 	margin-right: 0 !important;

@@ -1,14 +1,14 @@
 <!-- This area is for sheet worker scripts -->
 <script type="text/worker">
-on("change:repeating_rangedweapons", function() {
-getSectionIDs("repeating_rangedweapons", function(idarray) {
-let setOps={};
-for(var i=0; i < idarray.length; i++) {
-setOps['repeating_rangedweapons_'+idarray[i]+'_my_hidden_row_id']=idarray[i];
-}
-setAttrs(setOps);
-});
-});
+    on("change:repeating_rangedweapons", function() {
+        getSectionIDs("repeating_rangedweapons", function(idarray) {
+            let setOps={};
+            for(var i=0; i < idarray.length; i++) {
+                setOps['repeating_rangedweapons_'+idarray[i]+'_my_hidden_row_id']=idarray[i];
+            }
+            setAttrs(setOps);
+        });
+    });
 </script>
 <!-- This is the main tab set up -->
 <input type="radio" class="sheet-tab sheet-tab1" name="attr_core-tab" value="1" title="Player Sheet" checked="checked"/>
@@ -145,282 +145,257 @@ setAttrs(setOps);
         <img src="http://i.imgur.com/TKfHnQ9.png">
         
         <!-- for mechanics such as Characteristics, Armor and Defense, etc -->
-        <div class="sheet-col">
-            <div class="sheet-characteristics">
-                <h3 data-i18n="characteristics-u">Characteristics</h3>
-                <div class="sheet-2colrow">
-                    
-                    <!-- Left Column (Characteristics) -->
-                    
-                    <div class="sheet-col">
-                        
-                        <!-- WeaponSkill (WS) -->
-                        
-                        <div class="sheet-2colrow">
-                            <div class="sheet-col">
-                                <button name="roll_WS" type="roll" value="!skill40k @{character_name}, Weapon, @{WeaponSkill}, -1, 0, 0, 0, ?{Modifier|0}."><span data-i18n="weapon-skill-(ws)-u">Weapon Skill (WS)</span></button>
-                            </div>
-                            <div class="sheet-col">
-                                <div class="sheet-unnatural_box">
-                                    <input name="attr_WeaponSkill"  class="sheet-unnaturaltext" type="text" value="0">
-                                    <input name="attr_UnWS" title="Unnatural Weapon Skill" class="sheet-unnatural" type="number" value="0" />
-                                </div>
-                            </div>
+        <div class="sheet-characteristics">
+            <h3 data-i18n="characteristics-u">Characteristics</h3>
+            <div class="sheet-9colrow">
+                <div class="sheet-col">
+                    <!-- WeaponSkill (WS) -->
+                    <div class="sheet-2colrow">
+                        <div class="sheet-col">
+                            <button name="roll_WS" type="roll" value="!skill40k @{character_name}, Weapon, @{WeaponSkill}, -1, 0, 0, 0, ?{Modifier|0}."><span data-i18n="weapon-skill-u">(WS)</span></button>
                         </div>
-                        <div class="sheet-row">
-                            <div class="sheet-item" style="width:10%"></div>
-                            <div class="sheet-item" style="width:80%">
-                                <select class="advanceselect" name="attr_advanceWS">
-                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- BallisticSkill (BS) -->
-                        
-                        <div class="sheet-2colrow">
-                            <div class="sheet-col">
-                                <button name="roll_BS" type="roll" value="!skill40k @{character_name}, Ballistic, @{BallisticSkill}, -1, 0, 0, 0, ?{Modifier|0}."><span data-i18n="ballistic-skill-(bs)-u">Ballistic Skill (BS)</span></button>
-                            </div>
-                            <div class="sheet-col">
-                                <div class="sheet-unnatural_box">
-                                    <input name="attr_BallisticSkill" class="sheet-unnaturaltext" type="text" value="0">
-                                    <input name="attr_UnBS" Title="Unnatural Ballistic Skill" class="sheet-unnatural" type="number" value="0" />
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="sheet-row">
-                            <div class="sheet-item" style="width:10%"></div>
-                            <div class="sheet-item" style="width:80%">
-                                <select class="advanceselect" name="attr_advanceBS">
-                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <!-- Strength (S) -->
-                        
-                        <div class="sheet-2colrow">
-                            <div class="sheet-col">
-                                <button name="roll_S" type="roll" value="/em rolls Strength: [[1d100]] Target: [[@{Strength}+ ?{Modifier|0}]]."><span data-i18n="strength-(s)-u">Strength (S)</span></button>
-                            </div>
-                            <div class="sheet-col">
-                                <div class="sheet-unnatural_box">
-                                    <input name="attr_Strength" class="sheet-unnaturaltext" type="text" value="0">
-                                    <input name="attr_UnS" Title="Unnatural Strength" class="sheet-unnatural" type="number" value="0" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sheet-row">
-                            <div class="sheet-item" style="width:10%"></div>
-                            <div class="sheet-item" style="width:80%">
-                                <select class="advanceselect" name="attr_advanceS">
-                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Toughness (T) -->
-                        
-                        <div class="sheet-2colrow">
-                            <div class="sheet-col">
-                                <button name="roll_T" type="roll" value="/em rolls Toughness: [[1d100]] Target: [[@{Toughness}+ ?{Modifier|0}]]."><span data-i18n="toughness-(t)-u">Toughness (T)</span></button>
-                            </div>
-                            <div class="sheet-col">
-                                <div class="sheet-unnatural_box">
-                                    <input name="attr_Toughness" class="sheet-unnaturaltext"  type="text" value="0">
-                                    <input name="attr_UnT" Title="Unnatural Toughness" class="sheet-unnatural" type="number" value="0" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sheet-row">
-                            <div class="sheet-item" style="width:10%"></div>
-                            <div class="sheet-item" style="width:80%">
-                                <select class="advanceselect" name="attr_advanceT">
-                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Agility (Ag) -->
-                        
-                        <div class="sheet-2colrow">
-                            <div class="sheet-col">
-                                <button name="roll_Ag" type="roll" value="/em rolls Agility: [[1d100]] Target: [[@{Agility}+ ?{Modifier|0}]]."><span data-i18n="agility-(ag)-u">Agility (Ag)</span></button>
-                            </div>
-                            <div class="sheet-col">
-                                <div class="sheet-unnatural_box">
-                                    <input name="attr_Agility" class="sheet-unnaturaltext"  type="text" value="0">
-                                    <input name="attr_UnAg" Title="Unnatural Agility" class="sheet-unnatural" type="number" value="0" />
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="sheet-row">
-                            <div class="sheet-item" style="width:10%"></div>
-                            <div class="sheet-item" style="width:80%">
-                                <select class="advanceselect" name="attr_advanceAg">
-                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                                </select>
+                        <div class="sheet-col">
+                            <div class="sheet-unnatural_box">
+                                <input name="attr_WeaponSkill"  class="sheet-unnaturaltext" type="text" value="0">
+                                <input name="attr_UnWS" title="Unnatural Weapon Skill" class="sheet-unnatural" type="number" value="0" />
                             </div>
                         </div>
                     </div>
-                    <!-- Characteristics (Right Column) -->
+                    <div class="sheet-row">
+                        <div class="sheet-item" style="width:10%"></div>
+                        <div class="sheet-item" style="width:80%">
+                            <select class="advanceselect" name="attr_advanceWS">
+                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="sheet-col">
+                    <!-- BallisticSkill (BS) -->
+                    <div class="sheet-2colrow">
+                        <div class="sheet-col">
+                            <button name="roll_BS" type="roll" value="!skill40k @{character_name}, Ballistic, @{BallisticSkill}, -1, 0, 0, 0, ?{Modifier|0}."><span data-i18n="ballistic-skill-u">(BS)</span></button>
+                        </div>
+                        <div class="sheet-col">
+                            <div class="sheet-unnatural_box">
+                                <input name="attr_BallisticSkill" class="sheet-unnaturaltext" type="text" value="0">
+                                <input name="attr_UnBS" Title="Unnatural Ballistic Skill" class="sheet-unnatural" type="number" value="0" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sheet-row">
+                        <div class="sheet-item" style="width:10%"></div>
+                        <div class="sheet-item" style="width:80%">
+                            <select class="advanceselect" name="attr_advanceBS">
+                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="sheet-col">
+                    <!-- Strength (S) -->
+                    <div class="sheet-2colrow">
+                        <div class="sheet-col">
+                            <button name="roll_S" type="roll" value="/em rolls Strength: [[1d100]] Target: [[@{Strength}+ ?{Modifier|0}]]."><span data-i18n="strength-u">(S)</span></button>
+                        </div>
+                        <div class="sheet-col">
+                            <div class="sheet-unnatural_box">
+                                <input name="attr_Strength" class="sheet-unnaturaltext" type="text" value="0">
+                                <input name="attr_UnS" Title="Unnatural Strength" class="sheet-unnatural" type="number" value="0" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sheet-row">
+                        <div class="sheet-item" style="width:10%"></div>
+                        <div class="sheet-item" style="width:80%">
+                            <select class="advanceselect" name="attr_advanceS">
+                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="sheet-col">
+                    <!-- Toughness (T) -->
+                    <div class="sheet-2colrow">
+                        <div class="sheet-col">
+                            <button name="roll_T" type="roll" value="/em rolls Toughness: [[1d100]] Target: [[@{Toughness}+ ?{Modifier|0}]]."><span data-i18n="toughness-u">(T)</span></button>
+                        </div>
+                        <div class="sheet-col">
+                            <div class="sheet-unnatural_box">
+                                <input name="attr_Toughness" class="sheet-unnaturaltext"  type="text" value="0">
+                                <input name="attr_UnT" Title="Unnatural Toughness" class="sheet-unnatural" type="number" value="0" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sheet-row">
+                        <div class="sheet-item" style="width:10%"></div>
+                        <div class="sheet-item" style="width:80%">
+                            <select class="advanceselect" name="attr_advanceT">
+                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="sheet-col">
+                    <!-- Agility (Ag) -->
+                    <div class="sheet-2colrow">
+                        <div class="sheet-col">
+                            <button name="roll_Ag" type="roll" value="/em rolls Agility: [[1d100]] Target: [[@{Agility}+ ?{Modifier|0}]]."><span data-i18n="agility-u">(Ag)</span></button>
+                        </div>
+                        <div class="sheet-col">
+                            <div class="sheet-unnatural_box">
+                                <input name="attr_Agility" class="sheet-unnaturaltext"  type="text" value="0">
+                                <input name="attr_UnAg" Title="Unnatural Agility" class="sheet-unnatural" type="number" value="0" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sheet-row">
+                        <div class="sheet-item" style="width:10%"></div>
+                        <div class="sheet-item" style="width:80%">
+                            <select class="advanceselect" name="attr_advanceAg">
+                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="sheet-col">
+                    <!-- Intelligence (Int) -->
+                    <div class="sheet-2colrow">
+                        <div class="sheet-col">
+                            <button name="roll_Int" type="roll" value="!skill40k Intelligence, @{Intelligence}, -1, 0, 0, 0, ?{Target Modifier|0}"><span data-i18n="intelligence-u">(Int)</span>
+                            </button>
+                        </div>
+                        <div class="sheet-col">
+                            <div class="sheet-unnatural_box">
+                                <input name="attr_Intelligence" class="sheet-unnaturaltext"  type="text" value="0">
+                                <input name="attr_UnInt" Title="Unnatural Intelligence" class="sheet-unnatural" type="number" value="0" />
+                            </div>
+                        </div>
+                    </div>
                     
-                    <div class="sheet-col">
-                        
-                        <!-- Intelligence (Int) -->
-                        
-                        <div class="sheet-2colrow">
-                            <div class="sheet-col">
-                                <!--/em @{character_name} makes a known Acrobatics skill check!-->
-                                
-                                <!--<button name="roll_Int" type="roll" value="/em rolls Intelligence: [[1d100]] Target: [[@{Intelligence}+ ?{Modifier|0}]].">-->
-                                
-                                <button name="roll_Int" type="roll" value="!skill40k Intelligence, @{Intelligence}, -1, 0, 0, 0, ?{Target Modifier|0}">
-                                <span data-i18n="intelligence-(int)-u">Intelligence (Int)</span>
-                                </button>
-                            </div>
-                            <div class="sheet-col">
-                                <div class="sheet-unnatural_box">
-                                    <input name="attr_Intelligence" class="sheet-unnaturaltext"  type="text" value="0">
-                                    <input name="attr_UnInt" Title="Unnatural Intelligence" class="sheet-unnatural" type="number" value="0" />
-                                </div>
+                    <div class="sheet-row">
+                        <div class="sheet-item" style="width:10%"></div>
+                        <div class="sheet-item" style="width:80%">
+                            <select class="advanceselect" name="attr_advanceInt">
+                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="sheet-col">
+                    <!-- Perception (Per) -->
+                    <div class="sheet-2colrow">
+                        <div class="sheet-col">
+                            <button name="roll_Per" type="roll" value="/em rolls Perception: [[1d100]] Target: [[@{Perception}+ ?{Modifier|0}]]."><span data-i18n="perception-u">(Per)</span></button>
+                        </div>
+                        <div class="sheet-col">
+                            <div class="sheet-unnatural_box">
+                                <input name="attr_Perception" class="sheet-unnaturaltext" type="text" value="0">
+                                <input name="attr_UnPer" Title="Unnatural Perception" class="sheet-unnatural" type="number" value="0" />
                             </div>
                         </div>
-                        
-                        <div class="sheet-row">
-                            <div class="sheet-item" style="width:10%"></div>
-                            <div class="sheet-item" style="width:80%">
-                                <select class="advanceselect" name="attr_advanceInt">
-                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                                </select>
+                    </div>
+                    
+                    <div class="sheet-row">
+                        <div class="sheet-item" style="width:10%"></div>
+                        <div class="sheet-item" style="width:80%">
+                            <select class="advanceselect" name="attr_advancePer">
+                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="sheet-col">
+                    <!-- Willpower (WP) -->
+                    
+                    <div class="sheet-2colrow">
+                        <div class="sheet-col">
+                            <button name="roll_WP" type="roll" value="/em rolls Willpower: [[1d100]] Target: [[@{Willpower}+ ?{Modifier|0}]]."><span data-i18n="willpower-u">(WP)</span></button>
+                        </div>
+                        <div class="sheet-col">
+                            <div class="sheet-unnatural_box">
+                                <input name="attr_Willpower" class="sheet-unnaturaltext" type="text" value="0">
+                                <input name="attr_UnWP" Title="Unnatural Willpower" class="sheet-unnatural" type="number" value="0" />
                             </div>
                         </div>
-                        <!-- Perception (Per) -->
-                        
-                        <div class="sheet-2colrow">
-                            <div class="sheet-col">
-                                <button name="roll_Per" type="roll" value="/em rolls Perception: [[1d100]] Target: [[@{Perception}+ ?{Modifier|0}]]."><span data-i18n="perception-(per)-u">Perception (Per)</span></button>
-                            </div>
-                            <div class="sheet-col">
-                                <div class="sheet-unnatural_box">
-                                    <input name="attr_Perception" class="sheet-unnaturaltext" type="text" value="0">
-                                    <input name="attr_UnPer" Title="Unnatural Perception" class="sheet-unnatural" type="number" value="0" />
-                                </div>
+                    </div>
+                    
+                    <div class="sheet-row">
+                        <div class="sheet-item" style="width:10%"></div>
+                        <div class="sheet-item" style="width:80%">
+                            <select class="advanceselect" name="attr_advanceWP">
+                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="sheet-col">
+                    <!-- Fellowship (Fel) -->
+                    
+                    <div class="sheet-2colrow">
+                        <div class="sheet-col">
+                            <button name="roll_Fel" type="roll" value="/em rolls Fellowship: [[1d100]] Target: [[@{Fellowship}+ ?{Modifier|0}]]."><span data-i18n="fellowship-u">(Fel)</span></button>
+                        </div>
+                        <div class="sheet-col">
+                            <div class="sheet-unnatural_box">
+                                <input name="attr_Fellowship" class="sheet-unnaturaltext"  type="text" value="0">
+                                <input name="attr_UnFel" Title="Unnatural Fellowship" class="sheet-unnatural" type="number" value="0" />
                             </div>
                         </div>
-                        
-                        <div class="sheet-row">
-                            <div class="sheet-item" style="width:10%"></div>
-                            <div class="sheet-item" style="width:80%">
-                                <select class="advanceselect" name="attr_advancePer">
-                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                                </select>
-                            </div>
+                    </div>
+                    
+                    <div class="sheet-row">
+                        <div class="sheet-item" style="width:10%"></div>
+                        <div class="sheet-item" style="width:80%">
+                            <select class="advanceselect" name="attr_advanceFel">
+                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                            </select>
                         </div>
-                        <!-- Willpower (WP) -->
-                        
-                        <div class="sheet-2colrow">
-                            <div class="sheet-col">
-                                <button name="roll_WP" type="roll" value="/em rolls Willpower: [[1d100]] Target: [[@{Willpower}+ ?{Modifier|0}]]."><span data-i18n="willpower-(wp)-u">Willpower (WP)</span></button>
-                            </div>
-                            <div class="sheet-col">
-                                <div class="sheet-unnatural_box">
-                                    <input name="attr_Willpower" class="sheet-unnaturaltext" type="text" value="0">
-                                    <input name="attr_UnWP" Title="Unnatural Willpower" class="sheet-unnatural" type="number" value="0" />
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="sheet-row">
-                            <div class="sheet-item" style="width:10%"></div>
-                            <div class="sheet-item" style="width:80%">
-                                <select class="advanceselect" name="attr_advanceWP">
-                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <!-- Fellowship (Fel) -->
-                        
-                        <div class="sheet-2colrow">
-                            <div class="sheet-col">
-                                <button name="roll_Fel" type="roll" value="/em rolls Fellowship: [[1d100]] Target: [[@{Fellowship}+ ?{Modifier|0}]]."><span data-i18n="fellowship-(fel)-u">Fellowship (Fel)</span></button>
-                            </div>
-                            <div class="sheet-col">
-                                <div class="sheet-unnatural_box">
-                                    <input name="attr_Fellowship" class="sheet-unnaturaltext"  type="text" value="0">
-                                    <input name="attr_UnFel" Title="Unnatural Fellowship" class="sheet-unnatural" type="number" value="0" />
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="sheet-row">
-                            <div class="sheet-item" style="width:10%"></div>
-                            <div class="sheet-item" style="width:80%">
-                                <select class="advanceselect" name="attr_advanceFel">
-                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Influence (Ifl) -->
-                        
-                        <div class="sheet-2colrow">
-                            <div class="sheet-col">
-                                <button name="roll_Inf" type="roll" value="/em rolls Influence: [[1d100]] Target: [[@{Influence}+ ?{Modifier|0}]]."><span data-i18n="influence-(inf)-u">Influence (Inf)</span></button>
-                            </div>
-                            <div class="sheet-col">
-                                <div class="sheet-unnatural_box">
-                                    <input name="attr_Influence" class="sheet-unnaturaltext"  type="text" value="0">
-                                    <input name="attr_UnInf" Title="Unnatural Influence" class="sheet-unnatural" type="number" value="0" />
-                                </div>
-                            </div>
-                        </div>
-                        
                     </div>
                 </div>
             </div>
@@ -454,14 +429,14 @@ setAttrs(setOps);
                     <div class="sheet-row">
                         <div class="sheet-item sheet-redbgns" style="width:30%">
                             <button name="roll_Initiative" title="Select your token first!" type="roll" value="/em rolls Initiative and gets [[1d10+floor(@{selected|Agility} /10) + @{selected|UnAg} &{tracker}]].">
-                            <span data-i18n="agility-u">Agility</span>
+                                <span data-i18n="agility-u">Agility</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:1%">
                         </div>
                         <div class="sheet-item sheet-redbgns" style="width:35%">
                             <button name="roll_CInitiative" title="Select your token first!" type="roll" value="/em rolls Custom Initiative and gets [[@{selected|CInitiativeInput} &{tracker}]].">
-                            <span data-i18n="custom-u">Custom</span>
+                                <span data-i18n="custom-u">Custom</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:34%">
@@ -853,7 +828,7 @@ setAttrs(setOps);
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
                             <button name="roll_Dodge" type="roll" value="!skill40k @{character_name}'s Dodge Skill, @{DodgeCharacteristic}, @{Dodge1}, @{Dodge2}, @{Dodge3}, @{Dodge4}, ?{Target Modifier|0}">
-                            <span data-i18n="dodge-u">Dodge</span>
+                                <span data-i18n="dodge-u">Dodge</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
@@ -895,578 +870,578 @@ setAttrs(setOps);
                                     <div class="sheet-item sheet-Impskull" style="width:20%">
                                         <button name="roll_1stLanguage" type="roll"
                                         value="!skill40k @{character_name}'s Linguistics:@{1stLanguage} Skill, @{LinguisticsCharacteristic}, @{1stLanguage1}, @{1stLanguage2}, @{1stLanguage3}, @{1stLanguage4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_1stLanguage" type="text">
-                                    </div>
+                                    </button>
                                 </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_1stLanguage1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stLanguage2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stLanguage3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stLanguage4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_2ndLanguage" type="roll"
-                                        value="!skill40k @{character_name}'s Linguistics:@{2ndLanguage} Skill, @{LinguisticsCharacteristic}, @{2ndLanguage1}, @{2ndLanguage2}, @{2ndLanguage3}, @{2ndLanguage4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_2ndLanguage" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_2ndLanguage1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndLanguage2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndLanguage3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndLanguage4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_3rdLanguage" type="roll"
-                                        value="!skill40k @{character_name}'s Linguistics:@{3rdLanguage} Skill, @{LinguisticsCharacteristic}, @{3rdLanguage1}, @{3rdLanguage2}, @{3rdLanguage3}, @{3rdLanguage4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_3rdLanguage" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_3rdLanguage1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdLanguage2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdLanguage3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdLanguage4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <!-- ====================== Trade ====================== -->
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-span2" style="width:60%"><span data-i18n="trade-u">Trade</span></div>
-                                    <div class="sheet-item" style="width:40%">
-                                        <select class="charaselect" name="attr_TradeCharacteristic">
-                                            <option value="@{Intelligence}" data-i18n="int-u">(Int)</option>
-                                            <option value="@{Agility}" data-i18n="ag-u">(Ag)</option>
-                                            <option value="@{Fellowship}" data-i18n="fel-u">(Fel)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_1stTrade" type="roll"
-                                        value="!skill40k @{character_name}'s Trade:@{1stTrade} Skill, @{TradeCharacteristic}, @{1stTrade1}, @{1stTrade2}, @{1stTrade3}, @{1stTrade4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_1stTrade" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_1stTrade1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stTrade2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stTrade3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stTrade4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_2ndTrade" type="roll"
-                                        value="!skill40k @{character_name}'s Trade:@{2ndTrade} Skill, @{TradeCharacteristic}, @{2ndTrade1}, @{2ndTrade2}, @{2ndTrade3}, @{2ndTrade4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_2ndTrade" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_2ndTrade1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndTrade2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndTrade3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndTrade4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_3rdTrade" type="roll"
-                                        value="!skill40k @{character_name}'s Trade:@{3rdTrade} Skill, @{TradeCharacteristic}, @{3rdTrade1}, @{3rdTrade2}, @{3rdTrade3}, @{3rdTrade4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_3rdTrade" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_3rdTrade1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdTrade2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdTrade3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdTrade4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_4thTrade" type="roll"
-                                        value="!skill40k @{character_name}'s Trade:@{4thTrade} Skill, @{TradeCharacteristic}, @{4thTrade1}, @{4thTrade2}, @{4thTrade3}, @{4thTrade4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_4thTrade" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_4thTrade1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thTrade2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thTrade3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thTrade4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <!-- ====================== Lore ====================== -->
-                        
-                        <tr><td class="sheet-span2"><span data-i18n="lore-u">Lore</span></td></tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-span2" style="width:60%"><span data-i18n="common-u">Common</span></div>
-                                    <div class="sheet-item" style="width:40%">
-                                        <select class="charaselect" name="attr_CommonLoreCharacteristic">
-                                            <option value="@{Intelligence}" data-i18n="int-u">(Int)</option>
-                                            <option value="@{Fellowship}" data-i18n="fel-u">(Fel)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_1stCommon" type="roll"
-                                        value="!skill40k @{character_name}'s Common Lore:@{1stCommon} Skill, @{CommonLoreCharacteristic}, @{1stCommon1}, @{1stCommon2}, @{1stCommon3}, @{1stCommon4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_1stCommon" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_1stCommon1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stCommon2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stCommon3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stCommon4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_2ndCommon" type="roll"
-                                        value="!skill40k @{character_name}'s Common Lore:@{2ndCommon} Skill, @{CommonLoreCharacteristic}, @{2ndCommon1}, @{2ndCommon2}, @{2ndCommon3}, @{2ndCommon4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_2ndCommon" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_2ndCommon1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndCommon2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndCommon3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndCommon4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_3rdCommon" type="roll"
-                                        value="!skill40k @{character_name}'s Common Lore:@{3rdCommon} Skill, @{CommonLoreCharacteristic}, @{3rdCommon1}, @{3rdCommon2}, @{3rdCommon3}, @{3rdCommon4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_3rdCommon" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_3rdCommon1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdCommon2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdCommon3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdCommon4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_4thCommon" type="roll"
-                                        value="!skill40k @{character_name}'s Common Lore:@{4thCommon} Skill, @{CommonLoreCharacteristic}, @{4thCommon1}, @{4thCommon2}, @{4thCommon3}, @{4thCommon4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_4thCommon" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_4thCommon1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thCommon2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thCommon3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thCommon4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-span2" style="width:60%"><span data-i18n="scholastic-u">Scholastic</span></div>
-                                    <div class="sheet-item" style="width:40%">
-                                        <select class="charaselect" name="attr_ScholasticLoreCharacteristic">
-                                            <option value="@{Intelligence}" data-i18n="int-u">(Int)</option>
-                                            <option value="@{Fellowship}" data-i18n="fel-u">(Fel)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_1stScholastic" type="roll"
-                                        value="!skill40k @{character_name}'s Scholastic Lore:@{1stScholastic} Skill, @{ScholasticLoreCharacteristic}, @{1stScholastic1}, @{1stScholastic2}, @{1stScholastic3}, @{1stScholastic4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_1stScholastic" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_1stScholastic1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stScholastic2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stScholastic3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stScholastic4" type="checkbox" value="10"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_2ndScholastic" type="roll"
-                                        value="!skill40k @{character_name}'s Scholastic Lore:@{2ndScholastic} Skill, @{ScholasticLoreCharacteristic}, @{2ndScholastic1}, @{2ndScholastic2}, @{2ndScholastic3}, @{2ndScholastic4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_2ndScholastic" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_2ndScholastic1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndScholastic2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndScholastic3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndScholastic4" type="checkbox" value="10"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_3rdScholastic" type="roll"
-                                        value="!skill40k @{character_name}'s Scholastic Lore:@{3rdScholastic} Skill, @{ScholasticLoreCharacteristic}, @{3rdScholastic1}, @{3rdScholastic2}, @{3rdScholastic3}, @{3rdScholastic4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_3rdScholastic" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_3rdScholastic1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdScholastic2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdScholastic3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdScholastic4" type="checkbox" value="10"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_4thScholastic" type="roll"
-                                        value="!skill40k @{character_name}'s Scholastic Lore:@{4thScholastic} Skill, @{ScholasticLoreCharacteristic}, @{4thScholastic1}, @{4thScholastic2}, @{4thScholastic3}, @{4thScholastic4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_4thScholastic" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_4thScholastic1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thScholastic2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thScholastic3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thScholastic4" type="checkbox" value="10"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_5thScholastic" type="roll"
-                                        value="!skill40k @{character_name}'s Scholastic Lore:@{5thScholastic} Skill, @{ScholasticLoreCharacteristic}, @{5thScholastic1}, @{5thScholastic2}, @{5thScholastic3}, @{5thScholastic4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_5thScholastic" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_5thScholastic1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_5thScholastic2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_5thScholastic3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_5thScholastic4" type="checkbox" value="10"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_6thScholastic" type="roll"
-                                        value="!skill40k @{character_name}'s Scholastic Lore:@{6thScholastic} Skill, @{ScholasticLoreCharacteristic}, @{6thScholastic1}, @{6thScholastic2}, @{6thScholastic3}, @{6thScholastic4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_6thScholastic" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_6thScholastic1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_6thScholastic2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_6thScholastic3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_6thScholastic4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-span2" style="width:60%"><span data-i18n="forbidden-u">Forbidden</span></div>
-                                    <div class="sheet-item" style="width:40%">
-                                        <select class="charaselect" name="attr_ForbiddenLoreCharacteristic">
-                                            <option value="@{Intelligence}" data-i18n="int-u">(Int)</option>
-                                            <option value="@{Fellowship}" data-i18n="fel-u">(Fel)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_1stForbidden" type="roll"
-                                        value="!skill40k @{character_name}'s Forbidden Lore:@{1stForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{1stForbidden1}, @{1stForbidden2}, @{1stForbidden3}, @{1stForbidden4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_1stForbidden" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_1stForbidden1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stForbidden2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stForbidden3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_1stForbidden4" type="checkbox" value="10"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_2ndForbidden" type="roll"
-                                        value="!skill40k @{character_name}'s Forbidden Lore:@{2ndForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{2ndForbidden1}, @{2ndForbidden2}, @{2ndForbidden3}, @{2ndForbidden4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_2ndForbidden" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_2ndForbidden1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndForbidden2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndForbidden3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_2ndForbidden4" type="checkbox" value="10"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_3rdForbidden" type="roll"
-                                        value="!skill40k @{character_name}'s Forbidden Lore:@{3rdForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{3rdForbidden1}, @{3rdForbidden2}, @{3rdForbidden3}, @{3rdForbidden4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_3rdForbidden" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_3rdForbidden1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdForbidden2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdForbidden3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_3rdForbidden4" type="checkbox" value="10"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_4thForbidden" type="roll"
-                                        value="!skill40k @{character_name}'s Forbidden Lore:@{4thForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{4thForbidden1}, @{4thForbidden2}, @{4thForbidden3}, @{4thForbidden4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_4thForbidden" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_4thForbidden1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thForbidden2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thForbidden3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_4thForbidden4" type="checkbox" value="10"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_5thForbidden" type="roll"
-                                        value="!skill40k @{character_name}'s Forbidden Lore:@{5thForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{5thForbidden1}, @{5thForbidden2}, @{5thForbidden3}, @{5thForbidden4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_5thForbidden" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_5thForbidden1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_5thForbidden2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_5thForbidden3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_5thForbidden4" type="checkbox" value="10"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="sheet-row">
-                                    <div class="sheet-item sheet-Impskull" style="width:20%">
-                                        <button name="roll_6thForbidden" type="roll"
-                                        value="!skill40k @{character_name}'s Forbidden Lore:@{6thForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{6thForbidden1}, @{6thForbidden2}, @{6thForbidden3}, @{6thForbidden4}, ?{Target Modifier|0}">
-                                        </button>
-                                    </div>
-                                    <div class="sheet-item" style="width:80%">
-                                        <input name="attr_6thForbidden" type="text">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="sheet-grayborders"><input name="attr_6thForbidden1" type="checkbox" value="20"></td>
-                            <td class="sheet-grayborders"><input name="attr_6thForbidden2" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_6thForbidden3" type="checkbox" value="10"></td>
-                            <td class="sheet-grayborders"><input name="attr_6thForbidden4" type="checkbox" value="10"></td>
-                        </tr>
-                        
-                    </table>
-                </div>
-            </div>
-            <!-- ====================== Variable skill for house rule or overflow of existing Trade or Lore skills ====================== -->
-            
-            <h3 data-i18n="other-skills-u">Other Skills</h3>
-            <fieldset class="repeating_advancedskills">
-                <table style="width:100%;">
-                    <tr>
-                        <td class="roll_advancedskill sheet-Impskull">
-                            <button name="roll_advancedskill" type="roll" value="!skill40k @{character_name}'s @{advancedskillname} Skill, @{advancedskillcharacteristic}, @{advancedskillbox1}, @{advancedskillbox2}, @{advancedskillbox3}, @{advancedskillbox4}, ?{Target Modifier|0}">
-                            <input disabled="true" name="attr_advancedskill" type="number" value=" -20 +(@{advancedskillbox1})+@{advancedskillcharacteristic}+@{advancedskillbox2}+@{advancedskillbox3} +@{advancedskillbox4}">
-                            </button>
-                        </td>
-                        <td>
-                            <div class="sheet-row">
-                                <div class="sheet-item sheet-bigger" style="margin-left: 5px;">
-                                    <input class="sheet-baseinfo" name="attr_advancedskillname" type="text">
-                                </div>
-                                <div class="sheet-item sheet-med" style="margin:0;">
-                                    <select class="charaselect" name="attr_advancedskillcharacteristic">
-                                        <option value="@{WeaponSkill}" data-i18n="weapon-skill-u">(WS)</option>
-                                        <option value="@{BallisticSkill}" data-i18n="ballistic-skill-u">(BS)</option>
-                                        <option value="@{Strength}" data-i18n="strength-u">(S)</option>
-                                        <option value="@{Toughness}" data-i18n="toughness-u">(T)</option>
-                                        <option value="@{Agility}" data-i18n="agility-u">(Ag)</option>
-                                        <option value="@{Intelligence}" data-i18n="intelligence-u">(Int)</option>
-                                        <option value="@{Perception}" data-i18n="perception-u">(Per)</option>
-                                        <option value="@{Willpower}" data-i18n="willpower-u">(Wp)</option>
-                                        <option value="@{Fellowship}" data-i18n="fellowship-u">(Fel)</option>
-                                        <option value="@{Influence}" data-i18n="influence-u">(Inf)</option>
-                                        <option value="@{Corruption}" data-i18n="corruption-u">(Cor)</option>
-                                        <option value="@{Insanity}" data-i18n="insanity-u">(Ins)</option>
-                                    </select>
+                                <div class="sheet-item" style="width:80%">
+                                    <input name="attr_1stLanguage" type="text">
                                 </div>
                             </div>
                         </td>
-                        <td class="sheet-tdother sheet-grayborders"><input name="attr_advancedskillbox1" type="checkbox" value="20"></td>
-                        <td class="sheet-tdother sheet-grayborders"><input name="attr_advancedskillbox2" type="checkbox" value="10"></td>
-                        <td class="sheet-tdother sheet-grayborders"><input name="attr_advancedskillbox3" type="checkbox" value="10"></td>
-                        <td class="sheet-tdother sheet-grayborders"><input name="attr_advancedskillbox4" type="checkbox" value="10"></td>
+                        <td class="sheet-grayborders"><input name="attr_1stLanguage1" type="checkbox" value="20"></td>
+                        <td class="sheet-grayborders"><input name="attr_1stLanguage2" type="checkbox" value="10"></td>
+                        <td class="sheet-grayborders"><input name="attr_1stLanguage3" type="checkbox" value="10"></td>
+                        <td class="sheet-grayborders"><input name="attr_1stLanguage4" type="checkbox" value="10"></td>
                     </tr>
-                </table>
-            </fieldset>
-            <br>
-            <!-- Talents Section -->
+                    
+                    <tr>
+                        <td>
+                            <div class="sheet-row">
+                                <div class="sheet-item sheet-Impskull" style="width:20%">
+                                    <button name="roll_2ndLanguage" type="roll"
+                                    value="!skill40k @{character_name}'s Linguistics:@{2ndLanguage} Skill, @{LinguisticsCharacteristic}, @{2ndLanguage1}, @{2ndLanguage2}, @{2ndLanguage3}, @{2ndLanguage4}, ?{Target Modifier|0}">
+                                </button>
+                            </div>
+                            <div class="sheet-item" style="width:80%">
+                                <input name="attr_2ndLanguage" type="text">
+                            </div>
+                        </div>
+                    </td>
+                    <td class="sheet-grayborders"><input name="attr_2ndLanguage1" type="checkbox" value="20"></td>
+                    <td class="sheet-grayborders"><input name="attr_2ndLanguage2" type="checkbox" value="10"></td>
+                    <td class="sheet-grayborders"><input name="attr_2ndLanguage3" type="checkbox" value="10"></td>
+                    <td class="sheet-grayborders"><input name="attr_2ndLanguage4" type="checkbox" value="10"></td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <div class="sheet-row">
+                            <div class="sheet-item sheet-Impskull" style="width:20%">
+                                <button name="roll_3rdLanguage" type="roll"
+                                value="!skill40k @{character_name}'s Linguistics:@{3rdLanguage} Skill, @{LinguisticsCharacteristic}, @{3rdLanguage1}, @{3rdLanguage2}, @{3rdLanguage3}, @{3rdLanguage4}, ?{Target Modifier|0}">
+                            </button>
+                        </div>
+                        <div class="sheet-item" style="width:80%">
+                            <input name="attr_3rdLanguage" type="text">
+                        </div>
+                    </div>
+                </td>
+                <td class="sheet-grayborders"><input name="attr_3rdLanguage1" type="checkbox" value="20"></td>
+                <td class="sheet-grayborders"><input name="attr_3rdLanguage2" type="checkbox" value="10"></td>
+                <td class="sheet-grayborders"><input name="attr_3rdLanguage3" type="checkbox" value="10"></td>
+                <td class="sheet-grayborders"><input name="attr_3rdLanguage4" type="checkbox" value="10"></td>
+            </tr>
             
-            <!-- Divider -->
+            <!-- ====================== Trade ====================== -->
             
-            <img src="http://i.imgur.com/TKfHnQ9.png">
-            <h3 data-i18n="talents-u">Talents</h3>
+            <tr>
+                <td>
+                    <div class="sheet-row">
+                        <div class="sheet-item sheet-span2" style="width:60%"><span data-i18n="trade-u">Trade</span></div>
+                        <div class="sheet-item" style="width:40%">
+                            <select class="charaselect" name="attr_TradeCharacteristic">
+                                <option value="@{Intelligence}" data-i18n="int-u">(Int)</option>
+                                <option value="@{Agility}" data-i18n="ag-u">(Ag)</option>
+                                <option value="@{Fellowship}" data-i18n="fel-u">(Fel)</option>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="sheet-row">
+                        <div class="sheet-item sheet-Impskull" style="width:20%">
+                            <button name="roll_1stTrade" type="roll"
+                            value="!skill40k @{character_name}'s Trade:@{1stTrade} Skill, @{TradeCharacteristic}, @{1stTrade1}, @{1stTrade2}, @{1stTrade3}, @{1stTrade4}, ?{Target Modifier|0}">
+                        </button>
+                    </div>
+                    <div class="sheet-item" style="width:80%">
+                        <input name="attr_1stTrade" type="text">
+                    </div>
+                </div>
+            </td>
+            <td class="sheet-grayborders"><input name="attr_1stTrade1" type="checkbox" value="20"></td>
+            <td class="sheet-grayborders"><input name="attr_1stTrade2" type="checkbox" value="10"></td>
+            <td class="sheet-grayborders"><input name="attr_1stTrade3" type="checkbox" value="10"></td>
+            <td class="sheet-grayborders"><input name="attr_1stTrade4" type="checkbox" value="10"></td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div class="sheet-row">
+                    <div class="sheet-item sheet-Impskull" style="width:20%">
+                        <button name="roll_2ndTrade" type="roll"
+                        value="!skill40k @{character_name}'s Trade:@{2ndTrade} Skill, @{TradeCharacteristic}, @{2ndTrade1}, @{2ndTrade2}, @{2ndTrade3}, @{2ndTrade4}, ?{Target Modifier|0}">
+                    </button>
+                </div>
+                <div class="sheet-item" style="width:80%">
+                    <input name="attr_2ndTrade" type="text">
+                </div>
+            </div>
+        </td>
+        <td class="sheet-grayborders"><input name="attr_2ndTrade1" type="checkbox" value="20"></td>
+        <td class="sheet-grayborders"><input name="attr_2ndTrade2" type="checkbox" value="10"></td>
+        <td class="sheet-grayborders"><input name="attr_2ndTrade3" type="checkbox" value="10"></td>
+        <td class="sheet-grayborders"><input name="attr_2ndTrade4" type="checkbox" value="10"></td>
+    </tr>
+    
+    <tr>
+        <td>
             <div class="sheet-row">
-                <div class="sheet-item" style="width:90%">
-                    <input name="attr_Talent" type="text">
-                </div>
-                <div class="sheet-item" style="width:10%">
-                    <input name="attr_TalentPage" type="text" data-i18n-placeholder="page-number-#-u" placeholder="pg#" style="text-align: center;">
-                </div>
+                <div class="sheet-item sheet-Impskull" style="width:20%">
+                    <button name="roll_3rdTrade" type="roll"
+                    value="!skill40k @{character_name}'s Trade:@{3rdTrade} Skill, @{TradeCharacteristic}, @{3rdTrade1}, @{3rdTrade2}, @{3rdTrade3}, @{3rdTrade4}, ?{Target Modifier|0}">
+                </button>
             </div>
-            <fieldset class="repeating_Talents">
-                <div class="sheet-item" style="width:90%">
-                    <input name="attr_Talents" type="text">
-                </div>
-                <div class="sheet-item" style="width:10%">
-                    <input name="attr_TalentsPage" type="text" data-i18n-placeholder="page-number-#-u" placeholder="pg#" style="text-align: center;">
-                </div>
-            </fieldset>
-            <br>
-            <!-- Traits Section -->
-            
-            <!-- Divider -->
-            
-            <img src="http://i.imgur.com/TKfHnQ9.png">
-            <h3 data-i18n="traits-u">Traits</h3>
-            <div class="sheet-item" style="width:90%">
-                <input name="attr_Ability" type="text">
+            <div class="sheet-item" style="width:80%">
+                <input name="attr_3rdTrade" type="text">
             </div>
-            <div class="sheet-item" style="width:10%">
-                <input name="attr_TraitsPage" type="text" data-i18n-placeholder="page-number-#-u" placeholder="pg#" style="text-align: center;">
-            </div>
-            <fieldset class="repeating_Abilities">
-                <div class="sheet-item" style="width:90%">
-                    <input name="attr_Abilities" type="text" >
-                </div>
-                <div class="sheet-item" style="width:10%">
-                    <input name="attr_TraitsPages" type="text"  data-i18n-placeholder="page-number-#-u" placeholder="pg#" style="text-align: center;">
-                </div>
-            </fieldset>
+        </div>
+    </td>
+    <td class="sheet-grayborders"><input name="attr_3rdTrade1" type="checkbox" value="20"></td>
+    <td class="sheet-grayborders"><input name="attr_3rdTrade2" type="checkbox" value="10"></td>
+    <td class="sheet-grayborders"><input name="attr_3rdTrade3" type="checkbox" value="10"></td>
+    <td class="sheet-grayborders"><input name="attr_3rdTrade4" type="checkbox" value="10"></td>
+</tr>
+
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_4thTrade" type="roll"
+                value="!skill40k @{character_name}'s Trade:@{4thTrade} Skill, @{TradeCharacteristic}, @{4thTrade1}, @{4thTrade2}, @{4thTrade3}, @{4thTrade4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_4thTrade" type="text">
         </div>
     </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_4thTrade1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_4thTrade2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_4thTrade3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_4thTrade4" type="checkbox" value="10"></td>
+</tr>
+
+<!-- ====================== Lore ====================== -->
+
+<tr><td class="sheet-span2"><span data-i18n="lore-u">Lore</span></td></tr>
+
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-span2" style="width:60%"><span data-i18n="common-u">Common</span></div>
+            <div class="sheet-item" style="width:40%">
+                <select class="charaselect" name="attr_CommonLoreCharacteristic">
+                    <option value="@{Intelligence}" data-i18n="int-u">(Int)</option>
+                    <option value="@{Fellowship}" data-i18n="fel-u">(Fel)</option>
+                </select>
+            </div>
+        </div>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_1stCommon" type="roll"
+                value="!skill40k @{character_name}'s Common Lore:@{1stCommon} Skill, @{CommonLoreCharacteristic}, @{1stCommon1}, @{1stCommon2}, @{1stCommon3}, @{1stCommon4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_1stCommon" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_1stCommon1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_1stCommon2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_1stCommon3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_1stCommon4" type="checkbox" value="10"></td>
+</tr>
+
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_2ndCommon" type="roll"
+                value="!skill40k @{character_name}'s Common Lore:@{2ndCommon} Skill, @{CommonLoreCharacteristic}, @{2ndCommon1}, @{2ndCommon2}, @{2ndCommon3}, @{2ndCommon4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_2ndCommon" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_2ndCommon1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_2ndCommon2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_2ndCommon3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_2ndCommon4" type="checkbox" value="10"></td>
+</tr>
+
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_3rdCommon" type="roll"
+                value="!skill40k @{character_name}'s Common Lore:@{3rdCommon} Skill, @{CommonLoreCharacteristic}, @{3rdCommon1}, @{3rdCommon2}, @{3rdCommon3}, @{3rdCommon4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_3rdCommon" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_3rdCommon1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_3rdCommon2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_3rdCommon3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_3rdCommon4" type="checkbox" value="10"></td>
+</tr>
+
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_4thCommon" type="roll"
+                value="!skill40k @{character_name}'s Common Lore:@{4thCommon} Skill, @{CommonLoreCharacteristic}, @{4thCommon1}, @{4thCommon2}, @{4thCommon3}, @{4thCommon4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_4thCommon" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_4thCommon1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_4thCommon2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_4thCommon3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_4thCommon4" type="checkbox" value="10"></td>
+</tr>
+
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-span2" style="width:60%"><span data-i18n="scholastic-u">Scholastic</span></div>
+            <div class="sheet-item" style="width:40%">
+                <select class="charaselect" name="attr_ScholasticLoreCharacteristic">
+                    <option value="@{Intelligence}" data-i18n="int-u">(Int)</option>
+                    <option value="@{Fellowship}" data-i18n="fel-u">(Fel)</option>
+                </select>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_1stScholastic" type="roll"
+                value="!skill40k @{character_name}'s Scholastic Lore:@{1stScholastic} Skill, @{ScholasticLoreCharacteristic}, @{1stScholastic1}, @{1stScholastic2}, @{1stScholastic3}, @{1stScholastic4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_1stScholastic" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_1stScholastic1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_1stScholastic2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_1stScholastic3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_1stScholastic4" type="checkbox" value="10"></td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_2ndScholastic" type="roll"
+                value="!skill40k @{character_name}'s Scholastic Lore:@{2ndScholastic} Skill, @{ScholasticLoreCharacteristic}, @{2ndScholastic1}, @{2ndScholastic2}, @{2ndScholastic3}, @{2ndScholastic4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_2ndScholastic" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_2ndScholastic1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_2ndScholastic2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_2ndScholastic3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_2ndScholastic4" type="checkbox" value="10"></td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_3rdScholastic" type="roll"
+                value="!skill40k @{character_name}'s Scholastic Lore:@{3rdScholastic} Skill, @{ScholasticLoreCharacteristic}, @{3rdScholastic1}, @{3rdScholastic2}, @{3rdScholastic3}, @{3rdScholastic4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_3rdScholastic" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_3rdScholastic1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_3rdScholastic2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_3rdScholastic3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_3rdScholastic4" type="checkbox" value="10"></td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_4thScholastic" type="roll"
+                value="!skill40k @{character_name}'s Scholastic Lore:@{4thScholastic} Skill, @{ScholasticLoreCharacteristic}, @{4thScholastic1}, @{4thScholastic2}, @{4thScholastic3}, @{4thScholastic4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_4thScholastic" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_4thScholastic1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_4thScholastic2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_4thScholastic3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_4thScholastic4" type="checkbox" value="10"></td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_5thScholastic" type="roll"
+                value="!skill40k @{character_name}'s Scholastic Lore:@{5thScholastic} Skill, @{ScholasticLoreCharacteristic}, @{5thScholastic1}, @{5thScholastic2}, @{5thScholastic3}, @{5thScholastic4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_5thScholastic" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_5thScholastic1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_5thScholastic2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_5thScholastic3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_5thScholastic4" type="checkbox" value="10"></td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_6thScholastic" type="roll"
+                value="!skill40k @{character_name}'s Scholastic Lore:@{6thScholastic} Skill, @{ScholasticLoreCharacteristic}, @{6thScholastic1}, @{6thScholastic2}, @{6thScholastic3}, @{6thScholastic4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_6thScholastic" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_6thScholastic1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_6thScholastic2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_6thScholastic3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_6thScholastic4" type="checkbox" value="10"></td>
+</tr>
+
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-span2" style="width:60%"><span data-i18n="forbidden-u">Forbidden</span></div>
+            <div class="sheet-item" style="width:40%">
+                <select class="charaselect" name="attr_ForbiddenLoreCharacteristic">
+                    <option value="@{Intelligence}" data-i18n="int-u">(Int)</option>
+                    <option value="@{Fellowship}" data-i18n="fel-u">(Fel)</option>
+                </select>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_1stForbidden" type="roll"
+                value="!skill40k @{character_name}'s Forbidden Lore:@{1stForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{1stForbidden1}, @{1stForbidden2}, @{1stForbidden3}, @{1stForbidden4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_1stForbidden" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_1stForbidden1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_1stForbidden2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_1stForbidden3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_1stForbidden4" type="checkbox" value="10"></td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_2ndForbidden" type="roll"
+                value="!skill40k @{character_name}'s Forbidden Lore:@{2ndForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{2ndForbidden1}, @{2ndForbidden2}, @{2ndForbidden3}, @{2ndForbidden4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_2ndForbidden" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_2ndForbidden1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_2ndForbidden2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_2ndForbidden3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_2ndForbidden4" type="checkbox" value="10"></td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_3rdForbidden" type="roll"
+                value="!skill40k @{character_name}'s Forbidden Lore:@{3rdForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{3rdForbidden1}, @{3rdForbidden2}, @{3rdForbidden3}, @{3rdForbidden4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_3rdForbidden" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_3rdForbidden1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_3rdForbidden2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_3rdForbidden3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_3rdForbidden4" type="checkbox" value="10"></td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_4thForbidden" type="roll"
+                value="!skill40k @{character_name}'s Forbidden Lore:@{4thForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{4thForbidden1}, @{4thForbidden2}, @{4thForbidden3}, @{4thForbidden4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_4thForbidden" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_4thForbidden1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_4thForbidden2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_4thForbidden3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_4thForbidden4" type="checkbox" value="10"></td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_5thForbidden" type="roll"
+                value="!skill40k @{character_name}'s Forbidden Lore:@{5thForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{5thForbidden1}, @{5thForbidden2}, @{5thForbidden3}, @{5thForbidden4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_5thForbidden" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_5thForbidden1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_5thForbidden2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_5thForbidden3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_5thForbidden4" type="checkbox" value="10"></td>
+</tr>
+<tr>
+    <td>
+        <div class="sheet-row">
+            <div class="sheet-item sheet-Impskull" style="width:20%">
+                <button name="roll_6thForbidden" type="roll"
+                value="!skill40k @{character_name}'s Forbidden Lore:@{6thForbidden} Skill, @{ForbiddenLoreCharacteristic}, @{6thForbidden1}, @{6thForbidden2}, @{6thForbidden3}, @{6thForbidden4}, ?{Target Modifier|0}">
+            </button>
+        </div>
+        <div class="sheet-item" style="width:80%">
+            <input name="attr_6thForbidden" type="text">
+        </div>
+    </div>
+</td>
+<td class="sheet-grayborders"><input name="attr_6thForbidden1" type="checkbox" value="20"></td>
+<td class="sheet-grayborders"><input name="attr_6thForbidden2" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_6thForbidden3" type="checkbox" value="10"></td>
+<td class="sheet-grayborders"><input name="attr_6thForbidden4" type="checkbox" value="10"></td>
+</tr>
+
+</table>
+</div>
+</div>
+<!-- ====================== Variable skill for house rule or overflow of existing Trade or Lore skills ====================== -->
+
+<h3 data-i18n="other-skills-u">Other Skills</h3>
+<fieldset class="repeating_advancedskills">
+    <table style="width:100%;">
+        <tr>
+            <td class="roll_advancedskill sheet-Impskull">
+                <button name="roll_advancedskill" type="roll" value="!skill40k @{character_name}'s @{advancedskillname} Skill, @{advancedskillcharacteristic}, @{advancedskillbox1}, @{advancedskillbox2}, @{advancedskillbox3}, @{advancedskillbox4}, ?{Target Modifier|0}">
+                    <input disabled="true" name="attr_advancedskill" type="number" value=" -20 +(@{advancedskillbox1})+@{advancedskillcharacteristic}+@{advancedskillbox2}+@{advancedskillbox3} +@{advancedskillbox4}">
+                </button>
+            </td>
+            <td>
+                <div class="sheet-row">
+                    <div class="sheet-item sheet-bigger" style="margin-left: 5px;">
+                        <input class="sheet-baseinfo" name="attr_advancedskillname" type="text">
+                    </div>
+                    <div class="sheet-item sheet-med" style="margin:0;">
+                        <select class="charaselect" name="attr_advancedskillcharacteristic">
+                            <option value="@{WeaponSkill}" data-i18n="weapon-skill-u">(WS)</option>
+                            <option value="@{BallisticSkill}" data-i18n="ballistic-skill-u">(BS)</option>
+                            <option value="@{Strength}" data-i18n="strength-u">(S)</option>
+                            <option value="@{Toughness}" data-i18n="toughness-u">(T)</option>
+                            <option value="@{Agility}" data-i18n="agility-u">(Ag)</option>
+                            <option value="@{Intelligence}" data-i18n="intelligence-u">(Int)</option>
+                            <option value="@{Perception}" data-i18n="perception-u">(Per)</option>
+                            <option value="@{Willpower}" data-i18n="willpower-u">(Wp)</option>
+                            <option value="@{Fellowship}" data-i18n="fellowship-u">(Fel)</option>
+                            <option value="@{Influence}" data-i18n="influence-u">(Inf)</option>
+                            <option value="@{Corruption}" data-i18n="corruption-u">(Cor)</option>
+                            <option value="@{Insanity}" data-i18n="insanity-u">(Ins)</option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+            <td class="sheet-tdother sheet-grayborders"><input name="attr_advancedskillbox1" type="checkbox" value="20"></td>
+            <td class="sheet-tdother sheet-grayborders"><input name="attr_advancedskillbox2" type="checkbox" value="10"></td>
+            <td class="sheet-tdother sheet-grayborders"><input name="attr_advancedskillbox3" type="checkbox" value="10"></td>
+            <td class="sheet-tdother sheet-grayborders"><input name="attr_advancedskillbox4" type="checkbox" value="10"></td>
+        </tr>
+    </table>
+</fieldset>
+<br>
+<!-- Talents Section -->
+
+<!-- Divider -->
+
+<img src="http://i.imgur.com/TKfHnQ9.png">
+<h3 data-i18n="talents-u">Talents</h3>
+<div class="sheet-row">
+    <div class="sheet-item" style="width:90%">
+        <input name="attr_Talent" type="text">
+    </div>
+    <div class="sheet-item" style="width:10%">
+        <input name="attr_TalentPage" type="text" data-i18n-placeholder="page-number-#-u" placeholder="pg#" style="text-align: center;">
+    </div>
+</div>
+<fieldset class="repeating_Talents">
+    <div class="sheet-item" style="width:90%">
+        <input name="attr_Talents" type="text">
+    </div>
+    <div class="sheet-item" style="width:10%">
+        <input name="attr_TalentsPage" type="text" data-i18n-placeholder="page-number-#-u" placeholder="pg#" style="text-align: center;">
+    </div>
+</fieldset>
+<br>
+<!-- Traits Section -->
+
+<!-- Divider -->
+
+<img src="http://i.imgur.com/TKfHnQ9.png">
+<h3 data-i18n="traits-u">Traits</h3>
+<div class="sheet-item" style="width:90%">
+    <input name="attr_Ability" type="text">
+</div>
+<div class="sheet-item" style="width:10%">
+    <input name="attr_TraitsPage" type="text" data-i18n-placeholder="page-number-#-u" placeholder="pg#" style="text-align: center;">
+</div>
+<fieldset class="repeating_Abilities">
+    <div class="sheet-item" style="width:90%">
+        <input name="attr_Abilities" type="text" >
+    </div>
+    <div class="sheet-item" style="width:10%">
+        <input name="attr_TraitsPages" type="text"  data-i18n-placeholder="page-number-#-u" placeholder="pg#" style="text-align: center;">
+    </div>
+</fieldset>
+</div>
+</div>
 </div>
 <!-- Advancements Tab -->
 <div class="sheet-section-advancements sheet-watermark">
@@ -2356,16 +2331,16 @@ setAttrs(setOps);
 </div>
 <!-- This section contains Roll Templates HTML  -->
 <rolltemplate class="sheet-rolltemplate-darkheresy2">
-<table >
-    <tr><th>{{name}}</th></tr>
-    <td><img src="http://i.imgur.com/g1SVcwZ.png" height="100%" width="auto" max-width="100px"></td>
-    <tr><td><span class="tcat">{{dhdescription}} </span> </td></tr>
-</table>
+    <table >
+        <tr><th>{{name}}</th></tr>
+        <td><img src="http://i.imgur.com/g1SVcwZ.png" height="100%" width="auto" max-width="100px"></td>
+        <tr><td><span class="tcat">{{dhdescription}} </span> </td></tr>
+    </table>
 </rolltemplate>
 <rolltemplate class="sheet-rolltemplate-scattergram">
-<table >
-    <tr><th data-i18n="scatter-diagram-u">Scatter Diagram</th></tr>
-    <td><img src="http://i.imgur.com/g1SVcwZ.png" height="100%" width="auto" max-width="100px"></td>
-    <tr><td><span class="tcat"><img src="http://i.imgur.com/3Tvp7Ay.png"></span> </td></tr>
-</table>
+    <table >
+        <tr><th data-i18n="scatter-diagram-u">Scatter Diagram</th></tr>
+        <td><img src="http://i.imgur.com/g1SVcwZ.png" height="100%" width="auto" max-width="100px"></td>
+        <tr><td><span class="tcat"><img src="http://i.imgur.com/3Tvp7Ay.png"></span> </td></tr>
+    </table>
 </rolltemplate>
