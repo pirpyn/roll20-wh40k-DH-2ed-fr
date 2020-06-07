@@ -331,9 +331,8 @@ border: none;
 	margin-right: 1px !important;
 }
 
-.charsheet .sheet-wrapper .sheet-9colrow .sheet-col .sheet-2colrow .sheet-col {
-	width: calc(11% - 5px) !important;
-	margin-right: 1px !important;
+.charsheet .sheet-wrapper .sheet-9colrow .sheet-col .sheet-col {
+	width: 100%;
 }
 
 .charsheet .sheet-wrapper .sheet-9colrow .sheet-col:last-child {
@@ -517,9 +516,7 @@ background-color: #DBB0B1;
 /* Characteristics */
 .charsheet .sheet-wrapper .sheet-characteristics button[type="roll"] span,
 .charsheet .sheet-wrapper .sheet-characteristics button[type="roll"] input {
-	height:65px;
 	color: black;
-	line-height: 30px;
 	font-size: 16px; 
 	font-weight: bold;
 	font-family: inherit;
@@ -546,7 +543,6 @@ background-color: #DBB0B1;
 
 .charsheet .sheet-wrapper .sheet-characteristics button[type="roll"] {
 	border: none;
-	height:65px;
 	background-color: transparent;
 	white-space: normal; 
 	width: 100%;
@@ -568,13 +564,11 @@ background-color: #DBB0B1;
 	display:block;
 	border:1px solid #a5a4a0;
 	background-color:transparent;
-	width:70%;
-	height:65px;
 	margin:auto;
 	text-align:center;
 	font-weight:bolder;
 	font-family: inherit;
-	font-size:3em;
+	font-size:2em;
 }
 
 /* Footer */
@@ -658,8 +652,8 @@ input:focus, textarea:focus
 }
 .charsheet .sheet-wrapper .sheet-unnatural {
     position:absolute;
-    left: 59px;
-    top: 40px;
+    right: 0px;
+    top: 0px;
     z-index:1;
     margin-bottom:0px;
     padding-bottom:0px;

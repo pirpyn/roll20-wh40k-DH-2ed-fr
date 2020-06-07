@@ -69,6 +69,14 @@
                         <input name="attr_Role" type="text">
                     </div>
                 </div>
+                <div class="sheet-row">
+                    <div class="sheet-item" style="width:20%">
+                        <span data-i18n="thrones-u">Thrones</span>
+                    </div>
+                    <div class="sheet-item" style="width:80%">
+                        <input name="attr_thrones" type="number" style="text-align: center;">
+                    </div>
+                </div>
             </div>
             <!-- Mid Column (Logo), Top Row -->
             
@@ -83,15 +91,15 @@
                     <div class="sheet-item sheet-span2" style="width:30%">
                         <span data-i18n="player-name-u">Player Name:</span>
                     </div>
-                    <div class="sheet-item" style="width:65%">
+                    <div class="sheet-item" style="width:70%">
                         <input name="attr_Player" type="text">
                     </div>
                 </div>
                 <div class="sheet-row">
-                    <div class="sheet-item sheet-span2" style="width:18%">
+                    <div class="sheet-item sheet-span2" style="width:20%">
                         <span data-i18n="quirks-u">Quirks:</span>
                     </div>
-                    <div class="sheet-item" style="width:77%">
+                    <div class="sheet-item" style="width:80%">
                         <input name="attr_Quirks" type="text">
                     </div>
                 </div>
@@ -99,7 +107,7 @@
                     <div class="sheet-item sheet-span2" style="width:30%">
                         <span data-i18n="superstitions-u">Superstitions:</span>
                     </div>
-                    <div class="sheet-item" style="width:65%">
+                    <div class="sheet-item" style="width:70%">
                         <input name="attr_Superstitions" type="text">
                     </div>
                 </div>
@@ -138,263 +146,275 @@
                         </select>
                     </div>
                 </div>
+                <div class="sheet-row">
+                    <div class="sheet-item" style="width:20%">
+                        <span data-i18n="salary-u">Salary</span>
+                    </div>
+                    <div class="sheet-item" style="width:80%">
+                        <input name="attr_salary" type="number" style="text-align: center;">
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- Divider -->
         
+        <!-- Divider -->
         <img src="http://i.imgur.com/TKfHnQ9.png">
         
         <!-- for mechanics such as Characteristics, Armor and Defense, etc -->
-        <div class="sheet-characteristics">
-            <h3 data-i18n="characteristics-u">Characteristics</h3>
-            <div class="sheet-9colrow">
-                <div class="sheet-col">
-                    <!-- WeaponSkill (WS) -->
-                    <div class="sheet-2colrow">
+        <div class="sheet-col">
+            <div class="sheet-characteristics">
+                <h3 data-i18n="characteristics-u">Characteristics</h3>
+                <div class="sheet-9colrow">
+                    <div class="sheet-col">
+                        <!-- WeaponSkill (WS) -->
                         <div class="sheet-col">
-                            <button name="roll_WS" type="roll" value="!skill40k @{character_name}, Weapon, @{WeaponSkill}, -1, 0, 0, 0, ?{Modifier|0}."><span data-i18n="weapon-skill-u">(WS)</span></button>
+                            <div class="sheet-row">
+                                <button name="roll_WS" type="roll" value="!skill40k @{character_name}, Weapon, @{WeaponSkill}, -1, 0, 0, 0, ?{Modifier|0}."><span data-i18n="weapon-skill-u">(WS)</span></button>
+                            </div>
+                            <div class="sheet-row">
+                                <div class="sheet-unnatural_box">
+                                    <input name="attr_WeaponSkill"  class="sheet-unnaturaltext" type="text" value="0">
+                                    <input name="attr_UnWS" title="Unnatural Weapon Skill" class="sheet-unnatural" type="number" value="0" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="sheet-col">
-                            <div class="sheet-unnatural_box">
-                                <input name="attr_WeaponSkill"  class="sheet-unnaturaltext" type="text" value="0">
-                                <input name="attr_UnWS" title="Unnatural Weapon Skill" class="sheet-unnatural" type="number" value="0" />
+                        <div class="sheet-row">
+                            <div class="sheet-item" style="width:10%"></div>
+                            <div class="sheet-item" style="width:80%">
+                                <select class="advanceselect" name="attr_advanceWS">
+                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="sheet-row">
-                        <div class="sheet-item" style="width:10%"></div>
-                        <div class="sheet-item" style="width:80%">
-                            <select class="advanceselect" name="attr_advanceWS">
-                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="sheet-col">
-                    <!-- BallisticSkill (BS) -->
-                    <div class="sheet-2colrow">
+                    <div class="sheet-col">
+                        <!-- BallisticSkill (BS) -->
                         <div class="sheet-col">
-                            <button name="roll_BS" type="roll" value="!skill40k @{character_name}, Ballistic, @{BallisticSkill}, -1, 0, 0, 0, ?{Modifier|0}."><span data-i18n="ballistic-skill-u">(BS)</span></button>
+                            <div class="sheet-row">
+                                <button name="roll_BS" type="roll" value="!skill40k @{character_name}, Ballistic, @{BallisticSkill}, -1, 0, 0, 0, ?{Modifier|0}."><span data-i18n="ballistic-skill-u">(BS)</span></button>
+                            </div>
+                            <div class="sheet-row">
+                                <div class="sheet-unnatural_box">
+                                    <input name="attr_BallisticSkill" class="sheet-unnaturaltext" type="text" value="0">
+                                    <input name="attr_UnBS" Title="Unnatural Ballistic Skill" class="sheet-unnatural" type="number" value="0" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="sheet-col">
-                            <div class="sheet-unnatural_box">
-                                <input name="attr_BallisticSkill" class="sheet-unnaturaltext" type="text" value="0">
-                                <input name="attr_UnBS" Title="Unnatural Ballistic Skill" class="sheet-unnatural" type="number" value="0" />
+                        
+                        <div class="sheet-row">
+                            <div class="sheet-item" style="width:10%"></div>
+                            <div class="sheet-item" style="width:80%">
+                                <select class="advanceselect" name="attr_advanceBS">
+                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="sheet-row">
-                        <div class="sheet-item" style="width:10%"></div>
-                        <div class="sheet-item" style="width:80%">
-                            <select class="advanceselect" name="attr_advanceBS">
-                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="sheet-col">
-                    <!-- Strength (S) -->
-                    <div class="sheet-2colrow">
+                    <div class="sheet-col">
+                        <!-- Strength (S) -->
                         <div class="sheet-col">
-                            <button name="roll_S" type="roll" value="/em rolls Strength: [[1d100]] Target: [[@{Strength}+ ?{Modifier|0}]]."><span data-i18n="strength-u">(S)</span></button>
+                            <div class="sheet-row">
+                                <button name="roll_S" type="roll" value="/em rolls Strength: [[1d100]] Target: [[@{Strength}+ ?{Modifier|0}]]."><span data-i18n="strength-u">(S)</span></button>
+                            </div>
+                            <div class="sheet-row">
+                                <div class="sheet-unnatural_box">
+                                    <input name="attr_Strength" class="sheet-unnaturaltext" type="text" value="0">
+                                    <input name="attr_UnS" Title="Unnatural Strength" class="sheet-unnatural" type="number" value="0" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="sheet-col">
-                            <div class="sheet-unnatural_box">
-                                <input name="attr_Strength" class="sheet-unnaturaltext" type="text" value="0">
-                                <input name="attr_UnS" Title="Unnatural Strength" class="sheet-unnatural" type="number" value="0" />
+                        <div class="sheet-row">
+                            <div class="sheet-item" style="width:10%"></div>
+                            <div class="sheet-item" style="width:80%">
+                                <select class="advanceselect" name="attr_advanceS">
+                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="sheet-row">
-                        <div class="sheet-item" style="width:10%"></div>
-                        <div class="sheet-item" style="width:80%">
-                            <select class="advanceselect" name="attr_advanceS">
-                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="sheet-col">
-                    <!-- Toughness (T) -->
-                    <div class="sheet-2colrow">
+                    <div class="sheet-col">
+                        <!-- Toughness (T) -->
                         <div class="sheet-col">
-                            <button name="roll_T" type="roll" value="/em rolls Toughness: [[1d100]] Target: [[@{Toughness}+ ?{Modifier|0}]]."><span data-i18n="toughness-u">(T)</span></button>
+                            <div class="sheet-row">
+                                <button name="roll_T" type="roll" value="/em rolls Toughness: [[1d100]] Target: [[@{Toughness}+ ?{Modifier|0}]]."><span data-i18n="toughness-u">(T)</span></button>
+                            </div>
+                            <div class="sheet-row">
+                                <div class="sheet-unnatural_box">
+                                    <input name="attr_Toughness" class="sheet-unnaturaltext"  type="text" value="0">
+                                    <input name="attr_UnT" Title="Unnatural Toughness" class="sheet-unnatural" type="number" value="0" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="sheet-col">
-                            <div class="sheet-unnatural_box">
-                                <input name="attr_Toughness" class="sheet-unnaturaltext"  type="text" value="0">
-                                <input name="attr_UnT" Title="Unnatural Toughness" class="sheet-unnatural" type="number" value="0" />
+                        <div class="sheet-row">
+                            <div class="sheet-item" style="width:10%"></div>
+                            <div class="sheet-item" style="width:80%">
+                                <select class="advanceselect" name="attr_advanceT">
+                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="sheet-row">
-                        <div class="sheet-item" style="width:10%"></div>
-                        <div class="sheet-item" style="width:80%">
-                            <select class="advanceselect" name="attr_advanceT">
-                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="sheet-col">
-                    <!-- Agility (Ag) -->
-                    <div class="sheet-2colrow">
+                    <div class="sheet-col">
+                        <!-- Agility (Ag) -->
                         <div class="sheet-col">
-                            <button name="roll_Ag" type="roll" value="/em rolls Agility: [[1d100]] Target: [[@{Agility}+ ?{Modifier|0}]]."><span data-i18n="agility-u">(Ag)</span></button>
+                            <div class="sheet-row">
+                                <button name="roll_Ag" type="roll" value="/em rolls Agility: [[1d100]] Target: [[@{Agility}+ ?{Modifier|0}]]."><span data-i18n="agility-u">(Ag)</span></button>
+                            </div>
+                            <div class="sheet-row">
+                                <div class="sheet-unnatural_box">
+                                    <input name="attr_Agility" class="sheet-unnaturaltext"  type="text" value="0">
+                                    <input name="attr_UnAg" Title="Unnatural Agility" class="sheet-unnatural" type="number" value="0" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="sheet-col">
-                            <div class="sheet-unnatural_box">
-                                <input name="attr_Agility" class="sheet-unnaturaltext"  type="text" value="0">
-                                <input name="attr_UnAg" Title="Unnatural Agility" class="sheet-unnatural" type="number" value="0" />
+                        
+                        <div class="sheet-row">
+                            <div class="sheet-item" style="width:10%"></div>
+                            <div class="sheet-item" style="width:80%">
+                                <select class="advanceselect" name="attr_advanceAg">
+                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="sheet-row">
-                        <div class="sheet-item" style="width:10%"></div>
-                        <div class="sheet-item" style="width:80%">
-                            <select class="advanceselect" name="attr_advanceAg">
-                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="sheet-col">
-                    <!-- Intelligence (Int) -->
-                    <div class="sheet-2colrow">
+                    <div class="sheet-col">
+                        <!-- Intelligence (Int) -->
                         <div class="sheet-col">
-                            <button name="roll_Int" type="roll" value="!skill40k Intelligence, @{Intelligence}, -1, 0, 0, 0, ?{Target Modifier|0}"><span data-i18n="intelligence-u">(Int)</span>
-                            </button>
+                            <div class="sheet-row">
+                                <button name="roll_Int" type="roll" value="!skill40k Intelligence, @{Intelligence}, -1, 0, 0, 0, ?{Target Modifier|0}"><span data-i18n="intelligence-u">(Int)</span>
+                                </button>
+                            </div>
+                            <div class="sheet-row">
+                                <div class="sheet-unnatural_box">
+                                    <input name="attr_Intelligence" class="sheet-unnaturaltext"  type="text" value="0">
+                                    <input name="attr_UnInt" Title="Unnatural Intelligence" class="sheet-unnatural" type="number" value="0" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="sheet-col">
-                            <div class="sheet-unnatural_box">
-                                <input name="attr_Intelligence" class="sheet-unnaturaltext"  type="text" value="0">
-                                <input name="attr_UnInt" Title="Unnatural Intelligence" class="sheet-unnatural" type="number" value="0" />
+                        
+                        <div class="sheet-row">
+                            <div class="sheet-item" style="width:10%"></div>
+                            <div class="sheet-item" style="width:80%">
+                                <select class="advanceselect" name="attr_advanceInt">
+                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="sheet-row">
-                        <div class="sheet-item" style="width:10%"></div>
-                        <div class="sheet-item" style="width:80%">
-                            <select class="advanceselect" name="attr_advanceInt">
-                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="sheet-col">
-                    <!-- Perception (Per) -->
-                    <div class="sheet-2colrow">
+                    <div class="sheet-col">
+                        <!-- Perception (Per) -->
                         <div class="sheet-col">
-                            <button name="roll_Per" type="roll" value="/em rolls Perception: [[1d100]] Target: [[@{Perception}+ ?{Modifier|0}]]."><span data-i18n="perception-u">(Per)</span></button>
+                            <div class="sheet-row">
+                                <button name="roll_Per" type="roll" value="/em rolls Perception: [[1d100]] Target: [[@{Perception}+ ?{Modifier|0}]]."><span data-i18n="perception-u">(Per)</span></button>
+                            </div>
+                            <div class="sheet-row">
+                                <div class="sheet-unnatural_box">
+                                    <input name="attr_Perception" class="sheet-unnaturaltext" type="text" value="0">
+                                    <input name="attr_UnPer" Title="Unnatural Perception" class="sheet-unnatural" type="number" value="0" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="sheet-col">
-                            <div class="sheet-unnatural_box">
-                                <input name="attr_Perception" class="sheet-unnaturaltext" type="text" value="0">
-                                <input name="attr_UnPer" Title="Unnatural Perception" class="sheet-unnatural" type="number" value="0" />
+                        
+                        <div class="sheet-row">
+                            <div class="sheet-item" style="width:10%"></div>
+                            <div class="sheet-item" style="width:80%">
+                                <select class="advanceselect" name="attr_advancePer">
+                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="sheet-row">
-                        <div class="sheet-item" style="width:10%"></div>
-                        <div class="sheet-item" style="width:80%">
-                            <select class="advanceselect" name="attr_advancePer">
-                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="sheet-col">
-                    <!-- Willpower (WP) -->
-                    
-                    <div class="sheet-2colrow">
+                    <div class="sheet-col">
+                        <!-- Willpower (WP) -->
+                        
                         <div class="sheet-col">
-                            <button name="roll_WP" type="roll" value="/em rolls Willpower: [[1d100]] Target: [[@{Willpower}+ ?{Modifier|0}]]."><span data-i18n="willpower-u">(WP)</span></button>
+                            <div class="sheet-row">
+                                <button name="roll_WP" type="roll" value="/em rolls Willpower: [[1d100]] Target: [[@{Willpower}+ ?{Modifier|0}]]."><span data-i18n="willpower-u">(WP)</span></button>
+                            </div>
+                            <div class="sheet-row">
+                                <div class="sheet-unnatural_box">
+                                    <input name="attr_Willpower" class="sheet-unnaturaltext" type="text" value="0">
+                                    <input name="attr_UnWP" Title="Unnatural Willpower" class="sheet-unnatural" type="number" value="0" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="sheet-col">
-                            <div class="sheet-unnatural_box">
-                                <input name="attr_Willpower" class="sheet-unnaturaltext" type="text" value="0">
-                                <input name="attr_UnWP" Title="Unnatural Willpower" class="sheet-unnatural" type="number" value="0" />
+                        
+                        <div class="sheet-row">
+                            <div class="sheet-item" style="width:10%"></div>
+                            <div class="sheet-item" style="width:80%">
+                                <select class="advanceselect" name="attr_advanceWP">
+                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="sheet-row">
-                        <div class="sheet-item" style="width:10%"></div>
-                        <div class="sheet-item" style="width:80%">
-                            <select class="advanceselect" name="attr_advanceWP">
-                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="sheet-col">
-                    <!-- Fellowship (Fel) -->
-                    
-                    <div class="sheet-2colrow">
+                    <div class="sheet-col">
+                        <!-- Fellowship (Fel) -->
+                        
                         <div class="sheet-col">
-                            <button name="roll_Fel" type="roll" value="/em rolls Fellowship: [[1d100]] Target: [[@{Fellowship}+ ?{Modifier|0}]]."><span data-i18n="fellowship-u">(Fel)</span></button>
-                        </div>
-                        <div class="sheet-col">
-                            <div class="sheet-unnatural_box">
-                                <input name="attr_Fellowship" class="sheet-unnaturaltext"  type="text" value="0">
-                                <input name="attr_UnFel" Title="Unnatural Fellowship" class="sheet-unnatural" type="number" value="0" />
+                            <div class="sheet-row">
+                                <button name="roll_Fel" type="roll" value="/em rolls Fellowship: [[1d100]] Target: [[@{Fellowship}+ ?{Modifier|0}]]."><span data-i18n="fellowship-u">(Fel)</span></button>
+                            </div>
+                            <div class="sheet-row">
+                                <div class="sheet-unnatural_box">
+                                    <input name="attr_Fellowship" class="sheet-unnaturaltext"  type="text" value="0">
+                                    <input name="attr_UnFel" Title="Unnatural Fellowship" class="sheet-unnatural" type="number" value="0" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="sheet-row">
-                        <div class="sheet-item" style="width:10%"></div>
-                        <div class="sheet-item" style="width:80%">
-                            <select class="advanceselect" name="attr_advanceFel">
-                                <option value="0" data-i18n="none-(0)-u">None (0)</option>
-                                <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
-                                <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
-                                <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
-                                <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
-                                <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
-                            </select>
+                        
+                        <div class="sheet-row">
+                            <div class="sheet-item" style="width:10%"></div>
+                            <div class="sheet-item" style="width:80%">
+                                <select class="advanceselect" name="attr_advanceFel">
+                                    <option value="0" data-i18n="none-(0)-u">None (0)</option>
+                                    <option value="5" data-i18n="simple-(+5)-u">Simple (+5)</option>
+                                    <option value="10" data-i18n="intermediate-(+10)-u">Intermediate (+10)</option>
+                                    <option value="15" data-i18n="trained-(+15)-u">Trained (+15)</option>
+                                    <option value="20" data-i18n="proficient-(+20)-u">Proficient (+20)</option>
+                                    <option value="25" data-i18n="expert-(+25)-u">Expert (+25)</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1446,25 +1466,6 @@
 <!-- Advancements Tab -->
 <div class="sheet-section-advancements sheet-watermark">
     <div class="sheet-wrapper">
-        <div class="sheet-2colrow">
-            <h3 data-i18n="money-u">Money</h3>
-            <div class="sheet-row">
-                <div class="sheet-item" style="width:15%">
-                    <span data-i18n="thrones-u">Thrones</span>
-                </div>
-                <div class="sheet-item" style="width:10%">
-                    <input name="attr_thrones" type="number" style="text-align: center;">
-                </div>
-                <div class="sheet-item" style="width:15%">
-                    <span data-i18n="salary-u">Salary</span>
-                </div>
-                <div class="sheet-item" style="width:10%">
-                    <input name="attr_salary" type="number" style="text-align: center;">
-                </div>
-            </div>
-        </div>
-        <!-- Divider -->
-        <img src="http://i.imgur.com/TKfHnQ9.png">
         <div class="sheet-2colrow">
             <div class="sheet-dhcol">
                 <h3 style="width: 200%;" data-i18n="aptitudes-u">Aptitudes</h3>
