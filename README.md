@@ -2,7 +2,9 @@
 Fork of https://github.com/Roll20/roll20-character-sheets/tree/master/Dark%20Heresy%20Advanced%202nd%20Edition for my games
 
 ## Modification
-* Enhanced French translation of the character sheet
+* Modified the Character Sheet (CS) to comply with my way of mastering
+* Removed character quirks (eyes, ages) from the CS and the json translation file.
+* Enhanced French translation of the CS. Ex. Divination from the book.
 * Translate API scripts to French
 * Modified API scripts
 
