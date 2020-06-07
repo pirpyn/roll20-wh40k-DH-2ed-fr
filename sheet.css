@@ -332,7 +332,7 @@ border: none;
 }
 
 .charsheet .sheet-wrapper .sheet-9colrow .sheet-col .sheet-col {
-	width: 100%;
+	width: 100% !important;
 }
 
 .charsheet .sheet-wrapper .sheet-9colrow .sheet-col:last-child {
@@ -646,7 +646,6 @@ input:focus, textarea:focus
 
 .sheet-unnatural_box {
     position:relative;
-    width: 99px;
     margin-left: auto !important;
     margin-right: auto !important;
 }
