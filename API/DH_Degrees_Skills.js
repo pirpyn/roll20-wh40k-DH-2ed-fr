@@ -4,7 +4,7 @@
  * checks.
  *
  * The following commands is used:
- * !skill40k [speaker_name], [tokenName], [attributeValue], [skillBonus1], [skillBonus2], [skillBonus3], [skillBonus4], [ModifierValue]
+ * !skill40k [speaker_name], [attribute-name-u], [attributeValue], [skillBonus], [ModifierValue]
  *
  * It is expected that the following bonus are included based on the skill level of the character:
  * skillBonus1 = 10 or 0, if known
@@ -13,107 +13,109 @@
  * skillBonus4 = 10 or 0, if veteran or less than veteran
  *
  * Example:
- * !skill40k @{character_name},Acrobatic Skill,@{Agility},20,0,0,0,?{Total Modifiers|0}
+ * !skill40k @{character_name},agility-u,@{Agility}${modAgility},?{Total Modifiers|0}
  *
  * This script was written by Jack D on Roll20 Forums at https://app.roll20.net/forum/post/4607859/help-dark-heresy-2nd-edition-api
+ *
  * It was modified by Pierre P
  *
  **/
-var en = {
-    "Rolling": "Rolling",
-    "is-untrained" : "is untrained",
-    "is-known": "is known",
-    "is-trained": "is trained",
-    "is-experienced": "is experienced",
-    "is-mastered": "is mastered",
-    "granting-a-modified-target-of": "granting a modified target of",
-    "Rolled-a": "Rolled a",
-    "Suceeds-by": "succeeds by",
-    "Fails-by": "fails by",
-    "degree": "degree(s)",
-    "Epic-sucess": "Epic sucess!",
-    "Fumble": "Fumble ! ",
-};
-var fr = {
-    "Rolling": "Jet de",
-    "is-untrained" : "n'est pas formé",
-    "is-known": "est appris",
-    "is-trained": "est entrainé",
-    "is-experienced": "est expérimenté",
-    "is-mastered": "est maitrisé",
-    "granting-a-modified-target-of": "se compare donc à",
-    "Rolled-a": "Il fait",
-    "Suceeds-by": "Réussite de",
-    "Fails-by": "Echec de",
-    "degree": "degré(s)",
-    "Epic-sucess" : "Réussite critique !",
-    "Fumble" : "Echec critique !",
+
+var lang = {
+"weaponskill-u": "Capacité de Combat",
+"ws-u": "CC",
+"ballisticskill-u": "Capacité de Tir",
+"bs-u": "CT",
+"strength-u": "Force",
+"s-u": "F",
+"toughness-u": "Endurance",
+"t-u": "E",
+"agility-u": "Agilité",
+"ag-u": "Ag",
+"intelligence-u": "Intelligence",
+"int-u": "Int",
+"perception-u": "Perception",
+"per-u": "Per",
+"willpower-u": "Force Mentale",
+"wp-u": "FM",
+"fellowship-u": "Sociabilité",
+"fel-u": "Soc",
+"acrobatics-u": "Acrobatie",
+"athletics-u": "Athlétisme",
+"awareness-u": "Vigilance",
+"charm-u": "Charisme",
+"command-u": "Commandement",
+"commerce-u": "Commerce",
+"deceive-u": "Duperie",
+"dodge-u": "Esquive",
+"inquiry-u": "Enquête",
+"interrogation-u": "Interrogatoire",
+"intimidate-u": "Intimidation",
+"logic-u": "Logique",
+"medicae-u": "Medicae",
+"navigate-u": "Navigation",
+"surface-u": "Surface",
+"stellar-u": "Stellaire",
+"warp-u": "Warp",
+"operate-u": "Conduire",
+"aeronautica-u": "Aeronefs",
+"voidship-u": "Vaisseaux spatiaux",
+"parry-u": "Parade",
+"psyniscience-u": "Psyniscience",
+"scrutiny-u": "Surveillance",
+"security-u": "Sécurité",
+"sleight-of-hand-u": "Escamotage",
+"stealth-u": "Discrétion",
+"survival-u": "Survie",
+"tech-use-u": "Technomaîtrise",
+"linguistics-u": "Linguistique",
+"trade-u": "Commerce",
+"lore-u": "Connaissance",
+"common-u": "Commun",
+"scholastic-u": "Scolastique",
+"forbidden-u": "Interdite",
+"Rolling-u": "Jet de",
+"Rolled-a-u": "Obtient",
+"Suceeds-by-u": "Réussite de",
+"Fails-by-u": "Echec de",
+"degree-u": "degré(s)",
+"Epic-sucess-u" : "Réussite critique !",
+"Fumble-u" : "Echec critique !"
 };
 
-var lang = fr;
 
 //Rolls a d100 and calculates the success or fail results to the chat window.
-var rollResultForSkill40k = function (attribute_name, attribute, skillBn1, skillBn2, skillBn3, skillBn4, modifier) {
+var rollResultForSkill40k = function (skill_name, skill_value, skill_modifier_value, modifier) {
     var roll = randomInteger(100);
-    var skillBonus = parseInt(skillBn1) + parseInt(skillBn2) + parseInt(skillBn3) + parseInt(skillBn4) - 20;
-    var modTarget = parseInt(attribute) + parseInt(modifier);
-    var roll_info = "";
-    var msg = "";
-    var roll_result = "";
+    var modTarget = parseInt(skill_value) + parseInt(modifier) + parseInt(skill_modifier_value);
+    var msg = '';
+    var roll_info = '';
+    var roll_result = '';
     var degOfSuc = 0;
 
-
-    roll_info = lang["Rolling"] + ' ' + attribute_name;
-
-    //Create output which includes skill level wording
-    switch (skillBonus) {
-    case 0:
-        roll_info += ' ' + lang["is-known"]+ ' ' + lang["granting-a-modified-target-of"];
-        break;
-    case 10:
-        roll_info += ' ' + lang["is-trained"]+ ' ' + lang["granting-a-modified-target-of"];
-        break;
-    case 20:
-        roll_info += ' ' + lang["is-experience"]+ ' ' + lang["granting-a-modified-target-of"];
-        break;
-    case 30:
-        roll_info += ' ' + lang["is-mastered"]+ ' ' + lang["granting-a-modified-target-of"];
-        break;
-    case -20:
-        roll_info += ' ' + lang["is-untrained"] + ' ' + lang["granting-a-modified-target-of"];
-        break;
-    default:
-        // Characteristics don't have skill bonuses
-        // so by setings the Bonuses to something different from 10,
-        // we fall here, like -1 for Bn1, 0 for the other
-        skillBonus = 0;
-        roll_info += '';
-        break;
-    }
+    roll_info = lang["Rolling-u"] + ' ' + lang[skill_name];
     
-    modTarget += skillBonus;
-    
-    roll_info += ` <B> ${modTarget} (${attribute} + ${skillBonus} + ${modifier}).</B>` + 
-    ' ' + lang["Rolled-a"] + ' <B>' + roll + '.</B>';
+    roll_info += ` <B> ${modTarget} (${skill_value} + ${skill_modifier_value} + ${modifier}).</B>` + 
+    ' ' + lang["Rolled-a-u"] + ' <B>' + roll + '.</B>';
 
     //Form output message based on result
     if (roll === 1) {
         roll_result = '<span style="color:orange">';
-        msg += '<B>' + lang["Epic-sucess"] + '</B>';
+        msg += '<B>' + lang["Epic-sucess-u"] + '</B>';
     }
     else if (roll === 100) {
         roll_result = '<span style="color:black">';
-        msg += '<B>' + lang["Fumble"] + '</B>';
+        msg += '<B>' + lang["Fumble-u"] + '</B>';
     }
     else if (roll <= modTarget) {
         degOfSuc = (Math.floor(modTarget / 10) - Math.floor(roll / 10)) + 1;
         roll_result = '<span style="color:green">';
-        msg += lang["Suceeds-by"] + ' <B>' + degOfSuc + ' ' + lang["degree"] + '.</B>';
+        msg += lang["Suceeds-by-u"] + ' <B>' + degOfSuc + ' ' + lang["degree-u"] + '.</B>';
     }
     else {
         degOfSuc = (Math.floor(roll / 10) - Math.floor(modTarget / 10)) + 1;
         roll_result = '<span style="color:red">';
-        msg += lang["Fails-by"] + ' <B>' + degOfSuc + ' ' + lang["degree"] + '.</B>';
+        msg += lang["Fails-by-u"] + ' <B>' + degOfSuc + ' ' + lang["degree-u"] + '.</B>';
     }
 
     roll_result += msg + '</span>';
@@ -131,8 +133,8 @@ on('chat:message', function (msg) {
 
     if (msg.type === 'api' && msg.content.indexOf(cmdName) !== -1) {
         var paramArray = msg.content.slice(cmdName.length).split(',');
-        if (paramArray.length !== 8) {
-            sendChat(msg.who, '/w ' + msg.who + ' must specify eight comma-separated ' +
+        if (paramArray.length !== 5) {
+            sendChat(msg.who, '/w ' + msg.who + ' must specify 5 comma-separated ' +
                 'parameters for the !skill40k command.');
         }
         else {
@@ -140,14 +142,11 @@ on('chat:message', function (msg) {
                 paramArray[1].trim(),
                 paramArray[2].trim(),
                 paramArray[3].trim(),
-                paramArray[4].trim(),
-                paramArray[5].trim(),
-                paramArray[6].trim(),
-                paramArray[7].trim()
+                paramArray[4].trim()
             );
-            //log(`rollResultForSkill40k(${paramArray[0].trim()},${paramArray[1].trim()},${paramArray[2].trim()},${paramArray[3].trim()},${paramArray[4].trim()},${paramArray[5].trim()},${paramArray[6].trim()})`);
+            log(`rollResultForSkill40k(${paramArray[1].trim()},${paramArray[2].trim()},${paramArray[3].trim()},${paramArray[4].trim()})`);
             sendChat(paramArray[0].trim(), result);
-            //log(`sendChat(${msg.who},${result})`);
+            log(`sendChat(${msg.who},${result})`);
         }
     }
 });

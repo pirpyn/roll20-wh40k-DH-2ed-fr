@@ -74,7 +74,7 @@
                         <span data-i18n="thrones-u">Thrones Gelts</span>
                     </div>
                     <div class="sheet-item" style="width:60%">
-                        <input name="attr_thrones" type="number" style="text-align: center;">
+                        <input name="attr_thrones" type="number" value="0">0
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="sheet-item" style="width:70%">
                         <select class="advanceselect" name="attr_DivinationS">
-                            <option selected selected data-i18n="divinations-u">Divinations</option>
+                            <option selected data-i18n="divinations-u">Divinations</option>
                             <option data-i18n="mutations-without-corruption-within-u">Mutation without, corruption within.</option>
                             <option data-i18n="trust-in-your-fear-u">Trust in your fear.</option>
                             <option data-i18n="humans-must-die-so-that-humanity-can-endure-u">Humans must die so that humanity can endure.</option>
@@ -151,7 +151,7 @@
                         <span data-i18n="salary-u">Salary</span>
                     </div>
                     <div class="sheet-item" style="width:80%">
-                        <input name="attr_salary" type="number" style="text-align: center;">
+                        <input name="attr_salary" type="number" value="0">0
                     </div>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                         <!-- WeaponSkill WS -->
                         <div class="sheet-col">
                             <div class="sheet-row">
-                                <button name="roll_WS" type="roll" data-i18n-value="weapon-skill-u" value="!skill40k @{character_name}, WeaponSkill, @{WeaponSkill}, -1, 0, 0, 0, ?{Modifier|0}."><span data-i18n="ws-u">WS</span></button>
+                                <button name="roll_WS" type="roll" value="!skill40k @{character_name}, weaponskill-u, @{WeaponSkill}, @{advanceWS}, ?{Modifier|0}"><span data-i18n="ws-u">WS</span></button>
                             </div>
                             <div class="sheet-row">
                                 <div class="sheet-unnatural_box">
@@ -193,7 +193,7 @@
                         <!-- BallisticSkill BS -->
                         <div class="sheet-col">
                             <div class="sheet-row">
-                                <button name="roll_BS" type="roll" value="!skill40k @{character_name}, Ballistic, @{BallisticSkill}, -1, 0, 0, 0, ?{Modifier|0}."><span data-i18n="bs-u">BS</span></button>
+                                <button name="roll_BS" type="roll" value="!skill40k @{character_name}, ballisticskill-u, @{BallisticSkill}, @{advanceBS}, ?{Modifier|0}"><span data-i18n="bs-u">BS</span></button>
                             </div>
                             <div class="sheet-row">
                                 <div class="sheet-unnatural_box">
@@ -218,7 +218,7 @@
                         <!-- Strength S -->
                         <div class="sheet-col">
                             <div class="sheet-row">
-                                <button name="roll_S" type="roll" value="/em rolls Strength: [[1d100]] Target: [[@{Strength}+ ?{Modifier|0}]]."><span data-i18n="s-u">S</span></button>
+                                <button name="roll_S" type="roll" value="!skill40k @{character_name}, strength-u, @{Strength}, @{advanceS}, ?{Modifier|0}"><span data-i18n="s-u">S</span></button>
                             </div>
                             <div class="sheet-row">
                                 <div class="sheet-unnatural_box">
@@ -242,7 +242,7 @@
                         <!-- Toughness T -->
                         <div class="sheet-col">
                             <div class="sheet-row">
-                                <button name="roll_T" type="roll" value="/em rolls Toughness: [[1d100]] Target: [[@{Toughness}+ ?{Modifier|0}]]."><span data-i18n="t-u">T</span></button>
+                                <button name="roll_T" type="roll" value="!skill40k @{character_name}, toughness-u, @{Toughness}, @{advanceT}, ?{Modifier|0}"><span data-i18n="t-u">T</span></button>
                             </div>
                             <div class="sheet-row">
                                 <div class="sheet-unnatural_box">
@@ -266,7 +266,7 @@
                         <!-- Agility Ag -->
                         <div class="sheet-col">
                             <div class="sheet-row">
-                                <button name="roll_Ag" type="roll" value="/em rolls Agility: [[1d100]] Target: [[@{Agility}+ ?{Modifier|0}]]."><span data-i18n="ag-u">Ag</span></button>
+                                <button name="roll_Ag" type="roll" value="!skill40k @{character_name}, agility-u, @{Agility}, @{advanceAg}, ?{Modifier|0}"><span data-i18n="ag-u">Ag</span></button>
                             </div>
                             <div class="sheet-row">
                                 <div class="sheet-unnatural_box">
@@ -291,7 +291,7 @@
                         <!-- Intelligence Int -->
                         <div class="sheet-col">
                             <div class="sheet-row">
-                                <button name="roll_Int" type="roll" value="!skill40k Intelligence, @{Intelligence}, -1, 0, 0, 0, ?{Target Modifier|0}"><span data-i18n="int-u">Int</span>
+                                <button name="roll_Int" type="roll" value="!skill40k @{character_name}, intelligence-u, @{Intelligence}, @{advanceInt}, ?{Modifier|0}"><span data-i18n="int-u">Int</span>
                                 </button>
                             </div>
                             <div class="sheet-row">
@@ -317,7 +317,7 @@
                         <!-- Perception Per -->
                         <div class="sheet-col">
                             <div class="sheet-row">
-                                <button name="roll_Per" type="roll" value="/em rolls Perception: [[1d100]] Target: [[@{Perception}+ ?{Modifier|0}]]."><span data-i18n="per-u">Per</span></button>
+                                <button name="roll_Per" type="roll" value="!skill40k @{character_name}, perception-u, @{Perception}, @{advancePer}, ?{Modifier|0}"><span data-i18n="per-u">Per</span></button>
                             </div>
                             <div class="sheet-row">
                                 <div class="sheet-unnatural_box">
@@ -343,7 +343,7 @@
                         
                         <div class="sheet-col">
                             <div class="sheet-row">
-                                <button name="roll_WP" type="roll" value="/em rolls Willpower: [[1d100]] Target: [[@{Willpower}+ ?{Modifier|0}]]."><span data-i18n="wp-u">WP</span></button>
+                                <button name="roll_WP" type="roll" value="!skill40k @{character_name}, willpower-u, @{Willpower}, @{advanceWP}, ?{Modifier|0}"><span data-i18n="wp-u">WP</span></button>
                             </div>
                             <div class="sheet-row">
                                 <div class="sheet-unnatural_box">
@@ -369,7 +369,7 @@
                         
                         <div class="sheet-col">
                             <div class="sheet-row">
-                                <button name="roll_Fel" type="roll" value="/em rolls Fellowship: [[1d100]] Target: [[@{Fellowship}+ ?{Modifier|0}]]."><span data-i18n="fel-u">Fel</span></button>
+                                <button name="roll_Fel" type="roll" value="!skill40k @{character_name}, fellowship-u, @{Fellowship}, @{advanceFel}, ?{Modifier|0}"><span data-i18n="fel-u">Fel</span></button>
                             </div>
                             <div class="sheet-row">
                                 <div class="sheet-unnatural_box">
@@ -820,133 +820,133 @@
                 <div class="sheet-col sheet-skills">
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_acrobatics" type="roll" value="!skill40k @{character_name}, @{acrobaticsCharacteristic}, @{modacrobatics}, ?{Target Modifier|0}">
+                            <button name="roll_acrobatics" type="roll" value="!skill40k @{character_name}, acrobatics-u, @{acrobaticsCharacteristic}, @{modacrobatics}, ?{Target Modifier|0}">
                                 <span data-i18n="acrobatics-u">acrobatics</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_acrobaticsCharacteristic" disabled>
-                                <option value="@{Agility}" data-i18n="ag-u">Ag</option>
+                            <select class="charaselect" name="attr_acrobaticsCharacteristic">
+                                <option selected value="@{Agility}" data-i18n="ag-u">Ag</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background2">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modacrobatics" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modacrobatics" value="20">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modacrobatics" value="30">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modacrobatics" value="40">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modacrobatics" value="50">master (+40)</option>
+                            <select class="advanceselect" name="attr_modacrobatics">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="20">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="30">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="40">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="50">master (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_athletics" type="roll" value="!skill40k @{character_name}, @{athleticsCharacteristic}, @{modathletics}, ?{Target Modifier|0}">
+                            <button name="roll_athletics" type="roll" value="!skill40k @{character_name}, athletics-u, @{athleticsCharacteristic}, @{modathletics}, ?{Target Modifier|0}">
                                 <span data-i18n="athletics-u">athletics</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_athleticsCharacteristic" disabled>
-                                <option value="@{Agility}" data-i18n="ag-u">Ag</option>
+                            <select class="charaselect" name="attr_athleticsCharacteristic">
+                                <option selected value="@{Agility}" data-i18n="ag-u">Ag</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background3">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modathletics" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modathletics" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modathletics" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modathletics" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modathletics" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modathletics">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_awareness" type="roll" value="!skill40k @{character_name}, @{awarenessCharacteristic}, @{modawareness}, ?{Target Modifier|0}">
+                            <button name="roll_awareness" type="roll" value="!skill40k @{character_name}, awareness-u, @{awarenessCharacteristic}, @{modawareness}, ?{Target Modifier|0}">
                                 <span data-i18n="awareness-u">awareness</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_awarenessCharacteristic" disabled>
-                                <option value="@{Perception}" data-i18n="per-u">Per</option>
+                            <select class="charaselect" name="attr_awarenessCharacteristic">
+                                <option selected value="@{Perception}" data-i18n="per-u">Per</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background4">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modawareness" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modawareness" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modawareness" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modawareness" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modawareness" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modawareness">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_charm" type="roll" value="!skill40k @{character_name}, @{charmCharacteristic}, @{modcharm}, ?{Target Modifier|0}">
+                            <button name="roll_charm" type="roll" value="!skill40k @{character_name}, charm-u, @{charmCharacteristic}, @{modcharm}, ?{Target Modifier|0}">
                                 <span data-i18n="charm-u">charm</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_charmCharacteristic" disabled>
-                                <option value="@{Fellowship}" data-i18n="fel-u">Soc</option>
+                            <select class="charaselect" name="attr_charmCharacteristic">
+                                <option selected value="@{Fellowship}" data-i18n="fel-u">Soc</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background5">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modcharm" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modcharm" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modcharm" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modcharm" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modcharm" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modcharm">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_command" type="roll" value="!skill40k @{character_name}, @{commandCharacteristic}, @{modcommand}, ?{Target Modifier|0}">
+                            <button name="roll_command" type="roll" value="!skill40k @{character_name}, command-u, @{commandCharacteristic}, @{modcommand}, ?{Target Modifier|0}">
                                 <span data-i18n="command-u">command</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_commandCharacteristic" disabled>
-                                <option value="@{Fellowship}" data-i18n="fel-u">Fel</option>
+                            <select class="charaselect" name="attr_commandCharacteristic">
+                                <option selected value="@{Fellowship}" data-i18n="fel-u">Fel</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background6">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modcommand" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modcommand" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modcommand" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modcommand" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modcommand" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modcommand">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_commerce" type="roll" value="!skill40k @{character_name}, @{commerceCharacteristic}, @{modcommerce}, ?{Target Modifier|0}">
+                            <button name="roll_commerce" type="roll" value="!skill40k @{character_name}, commerce-u, @{commerceCharacteristic}, @{modcommerce}, ?{Target Modifier|0}">
                                 <span data-i18n="commerce-u">commerce</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_commerceCharacteristic" disabled>
-                                <option value="@{Fellowship}" data-i18n="fel-u">Fel</option>
+                            <select class="charaselect" name="attr_commerceCharacteristic">
+                                <option selected value="@{Fellowship}" data-i18n="fel-u">Fel</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background7">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modcommerce" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modcommerce" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modcommerce" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modcommerce" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modcommerce" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modcommerce">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_deceive" type="roll" value="!skill40k @{character_name}, @{deceiveCharacteristic}, @{moddeceive}, ?{Target Modifier|0}">
+                            <button name="roll_deceive" type="roll" value="!skill40k @{character_name}, deceive-u, @{deceiveCharacteristic}, @{moddeceive}, ?{Target Modifier|0}">
                                 <span data-i18n="deceive-u">deceive</span>
                             </button>
                         </div>
@@ -957,18 +957,18 @@
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background8">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_moddeceive" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_moddeceive" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_moddeceive" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_moddeceive" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_moddeceive" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_moddeceive">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_dodge" type="roll" value="!skill40k @{character_name}, @{dodgeCharacteristic}, @{moddodge}, ?{Target Modifier|0}">
+                            <button name="roll_dodge" type="roll" value="!skill40k @{character_name}, dodge-u, @{dodgeCharacteristic}, @{moddodge}, ?{Target Modifier|0}">
                                 <span data-i18n="dodge-u">dodge</span>
                             </button>
                         </div>
@@ -979,18 +979,18 @@
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background9">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_moddodge" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_moddodge" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_moddodge" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_moddodge" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_moddodge" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_moddodge">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_inquiry" type="roll" value="!skill40k @{character_name}, @{inquiryCharacteristic}, @{modinquiry}, ?{Target Modifier|0}">
+                            <button name="roll_inquiry" type="roll" value="!skill40k @{character_name}, inquiry-u, @{inquiryCharacteristic}, @{modinquiry}, ?{Target Modifier|0}">
                                 <span data-i18n="inquiry-u">inquiry</span>
                             </button>
                         </div>
@@ -1002,18 +1002,18 @@
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background10">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modinquiry" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modinquiry" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modinquiry" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modinquiry" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modinquiry" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modinquiry">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_interrogation" type="roll" value="!skill40k @{character_name}, @{interrogationCharacteristic}, @{modinterrogation}, ?{Target Modifier|0}">
+                            <button name="roll_interrogation" type="roll" value="!skill40k @{character_name}, interrogation-u, @{interrogationCharacteristic}, @{modinterrogation}, ?{Target Modifier|0}">
                                 <span data-i18n="interrogation-u">interrogation</span>
                             </button>
                         </div>
@@ -1025,18 +1025,18 @@
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background11">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modinterrogation" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modinterrogation" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modinterrogation" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modinterrogation" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modinterrogation" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modinterrogation">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_intimidate" type="roll" value="!skill40k @{character_name}, @{intimidateCharacteristic}, @{modintimidate}, ?{Target Modifier|0}">
+                            <button name="roll_intimidate" type="roll" value="!skill40k @{character_name}, intimidate-u, @{intimidateCharacteristic}, @{modintimidate}, ?{Target Modifier|0}">
                                 <span data-i18n="intimidate-u">intimidate</span>
                             </button>
                         </div>
@@ -1047,207 +1047,207 @@
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background12">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modintimidate" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modintimidate" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modintimidate" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modintimidate" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modintimidate" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modintimidate">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_logic" type="roll" value="!skill40k @{character_name}, @{logicCharacteristic}, @{modlogic}, ?{Target Modifier|0}">
+                            <button name="roll_logic" type="roll" value="!skill40k @{character_name}, logic-u, @{logicCharacteristic}, @{modlogic}, ?{Target Modifier|0}">
                                 <span data-i18n="logic-u">logic</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_logicCharacteristic" disabled>
-                                <option value="@{Intelligence}" data-i18n="int-u">Int</option>
+                            <select class="charaselect" name="attr_logicCharacteristic">
+                                <option selected value="@{Intelligence}" data-i18n="int-u">Int</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background13">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modlogic" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modlogic" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modlogic" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modlogic" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modlogic" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modlogic">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_medicae" type="roll" value="!skill40k @{character_name}, @{medicaeCharacteristic}, @{modmedicae}, ?{Target Modifier|0}">
+                            <button name="roll_medicae" type="roll" value="!skill40k @{character_name}, medicae-u, @{medicaeCharacteristic}, @{modmedicae}, ?{Target Modifier|0}">
                                 <span data-i18n="medicae-u">medicae</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_medicaeCharacteristic" disabled>
-                                <option value="@{Intelligence}" data-i18n="int-u">Int</option>
+                            <select class="charaselect" name="attr_medicaeCharacteristic">
+                                <option selected value="@{Intelligence}" data-i18n="int-u">Int</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background14">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modmedicae" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modmedicae" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modmedicae" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modmedicae" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modmedicae" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modmedicae">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_navigate" type="roll" value="!skill40k @{character_name}, @{navigateCharacteristic}, @{modnavigate}, ?{Target Modifier|0}">
+                            <button name="roll_navigate" type="roll" value="!skill40k @{character_name}, navigate-u, @{navigateCharacteristic}, @{modnavigate}, ?{Target Modifier|0}">
                                 <span data-i18n="navigate-u">navigate</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_navigateCharacteristic"disabled>
-                                <option value="@{Perception}" data-i18n="per-u">Per</option>
+                            <select class="charaselect" name="attr_navigateCharacteristic">
+                                <option selected value="@{Perception}" data-i18n="per-u">Per</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background15">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modnavigate" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modnavigate" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modnavigate" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modnavigate" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modnavigate" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modnavigate">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_surface" type="roll" value="!skill40k @{character_name}, @{surfaceCharacteristic}, @{modsurface}, ?{Target Modifier|0}">
+                            <button name="roll_surface" type="roll" value="!skill40k @{character_name}, surface-u, @{surfaceCharacteristic}, @{modsurface}, ?{Target Modifier|0}">
                                 <span data-i18n="surface-u">surface</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_surfaceCharacteristic" disabled>
-                                <option value="@{Perception}" data-i18n="per-u">Per</option>
+                            <select class="charaselect" name="attr_surfaceCharacteristic">
+                                <option selected value="@{Perception}" data-i18n="per-u">Per</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background16">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modsurface" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modsurface" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modsurface" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modsurface" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modsurface" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modsurface">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_stellar" type="roll" value="!skill40k @{character_name}, @{stellarCharacteristic}, @{modstellar}, ?{Target Modifier|0}">
+                            <button name="roll_stellar" type="roll" value="!skill40k @{character_name}, stellar-u, @{stellarCharacteristic}, @{modstellar}, ?{Target Modifier|0}">
                                 <span data-i18n="stellar-u">stellar</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_stellarCharacteristic" disabled>
-                                <option value="@{Perception}" data-i18n="per-u">Per</option>
+                            <select class="charaselect" name="attr_stellarCharacteristic">
+                                <option selected value="@{Perception}" data-i18n="per-u">Per</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background17">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modstellar" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modstellar" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modstellar" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modstellar" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modstellar" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modstellar">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_warp" type="roll" value="!skill40k @{character_name}, @{warpCharacteristic}, @{modwarp}, ?{Target Modifier|0}">
+                            <button name="roll_warp" type="roll" value="!skill40k @{character_name}, warp-u, @{warpCharacteristic}, @{modwarp}, ?{Target Modifier|0}">
                                 <span data-i18n="warp-u">warp</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_warpCharacteristic" disabled>
-                                <option value="@{Willpower}" data-i18n="wp-u">WP</option>
+                            <select class="charaselect" name="attr_warpCharacteristic">
+                                <option selected value="@{Willpower}" data-i18n="wp-u">WP</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background18">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modwarp" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modwarp" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modwarp" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modwarp" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modwarp" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modwarp">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_operate" type="roll" value="!skill40k @{character_name}, @{operateCharacteristic}, @{modoperate}, ?{Target Modifier|0}">
+                            <button name="roll_operate" type="roll" value="!skill40k @{character_name}, operate-u, @{operateCharacteristic}, @{modoperate}, ?{Target Modifier|0}">
                                 <span data-i18n="operate-u">operate</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_operateCharacteristic" disabled>
-                                <option value="@{Perception}" data-i18n="per-u">Per</option>
+                            <select class="charaselect" name="attr_operateCharacteristic">
+                                <option selected value="@{Perception}" data-i18n="per-u">Per</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background19">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modoperate" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modoperate" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modoperate" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modoperate" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modoperate" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modoperate">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_aeronautica" type="roll" value="!skill40k @{character_name}, @{aeronauticaCharacteristic}, @{modaeronautica}, ?{Target Modifier|0}">
+                            <button name="roll_aeronautica" type="roll" value="!skill40k @{character_name}, aeronautica-u, @{aeronauticaCharacteristic}, @{modaeronautica}, ?{Target Modifier|0}">
                                 <span data-i18n="aeronautica-u">aeronautica</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_aeronauticaCharacteristic" disabled>
-                                <option value="@{Perception}" data-i18n="per-u">Per</option>
+                            <select class="charaselect" name="attr_aeronauticaCharacteristic">
+                                <option selected value="@{Perception}" data-i18n="per-u">Per</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background20">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modaeronautica" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modaeronautica" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modaeronautica" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modaeronautica" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modaeronautica" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modaeronautica">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_voidship" type="roll" value="!skill40k @{character_name}, @{voidshipCharacteristic}, @{modvoidship}, ?{Target Modifier|0}">
+                            <button name="roll_voidship" type="roll" value="!skill40k @{character_name}, voidship-u, @{voidshipCharacteristic}, @{modvoidship}, ?{Target Modifier|0}">
                                 <span data-i18n="voidship-u">voidship</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_voidshipCharacteristic" disabled>
-                                <option value="@{Perception}" data-i18n="per-u">Per</option>
+                            <select class="charaselect" name="attr_voidshipCharacteristic">
+                                <option selected value="@{Perception}" data-i18n="per-u">Per</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background21">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modvoidship" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modvoidship" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modvoidship" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modvoidship" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modvoidship" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modvoidship">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_parry" type="roll" value="!skill40k @{character_name}, @{parryCharacteristic}, @{modparry}, ?{Target Modifier|0}">
+                            <button name="roll_parry" type="roll" value="!skill40k @{character_name}, parry-u, @{parryCharacteristic}, @{modparry}, ?{Target Modifier|0}">
                                 <span data-i18n="parry-u">parry</span>
                             </button>
                         </div>
@@ -1258,81 +1258,81 @@
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background22">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modparry" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modparry" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modparry" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modparry" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modparry" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modparry">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_psyniscience" type="roll" value="!skill40k @{character_name}, @{psyniscienceCharacteristic}, @{modpsyniscience}, ?{Target Modifier|0}">
+                            <button name="roll_psyniscience" type="roll" value="!skill40k @{character_name}, psyniscience-u, @{psyniscienceCharacteristic}, @{modpsyniscience}, ?{Target Modifier|0}">
                                 <span data-i18n="psyniscience-u">psyniscience</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_psyniscienceCharacteristic" disabled>
-                                <option value="@{Willpower}" data-i18n="wp-u">WP</option>
+                            <select class="charaselect" name="attr_psyniscienceCharacteristic">
+                                <option selected value="@{Willpower}" data-i18n="wp-u">WP</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background23">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modpsyniscience" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modpsyniscience" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modpsyniscience" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modpsyniscience" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modpsyniscience" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modpsyniscience">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_scrutiny" type="roll" value="!skill40k @{character_name}, @{scrutinyCharacteristic}, @{modscrutiny}, ?{Target Modifier|0}">
+                            <button name="roll_scrutiny" type="roll" value="!skill40k @{character_name}, scrutiny-u, @{scrutinyCharacteristic}, @{modscrutiny}, ?{Target Modifier|0}">
                                 <span data-i18n="scrutiny-u">scrutiny</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_scrutinyCharacteristic" disabled>
-                                <option value="@{Perception}" data-i18n="per-u">Per</option>
+                            <select class="charaselect" name="attr_scrutinyCharacteristic">
+                                <option selected value="@{Perception}" data-i18n="per-u">Per</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background24">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modscrutiny" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modscrutiny" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modscrutiny" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modscrutiny" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modscrutiny" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modscrutiny">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_security" type="roll" value="!skill40k @{character_name}, @{securityCharacteristic}, @{modsecurity}, ?{Target Modifier|0}">
+                            <button name="roll_security" type="roll" value="!skill40k @{character_name}, security-u, @{securityCharacteristic}, @{modsecurity}, ?{Target Modifier|0}">
                                 <span data-i18n="security-u">security</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_securityCharacteristic" disabled>
-                                <option value="@{Perception}" data-i18n="per-u">Per</option>
+                            <select class="charaselect" name="attr_securityCharacteristic">
+                                <option selected value="@{Perception}" data-i18n="per-u">Per</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background25">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modsecurity" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modsecurity" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modsecurity" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modsecurity" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modsecurity" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modsecurity">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_sleight-of-hand" type="roll" value="!skill40k @{character_name}, @{sleight-of-handCharacteristic}, @{modsleight-of-hand}, ?{Target Modifier|0}">
+                            <button name="roll_sleight-of-hand" type="roll" value="!skill40k @{character_name}, sleight-of-hand-u, @{sleight-of-handCharacteristic}, @{modsleight-of-hand}, ?{Target Modifier|0}">
                                 <span data-i18n="sleight-of-hand-u">sleight-of-hand</span>
                             </button>
                         </div>
@@ -1343,18 +1343,18 @@
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background26">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modsleight-of-hand" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modsleight-of-hand" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modsleight-of-hand" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modsleight-of-hand" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modsleight-of-hand" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modsleight-of-hand">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_stealth" type="roll" value="!skill40k @{character_name}, @{stealthCharacteristic}, @{modstealth}, ?{Target Modifier|0}">
+                            <button name="roll_stealth" type="roll" value="!skill40k @{character_name}, stealth-u, @{stealthCharacteristic}, @{modstealth}, ?{Target Modifier|0}">
                                 <span data-i18n="stealth-u">stealth</span>
                             </button>
                         </div>
@@ -1365,18 +1365,18 @@
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background27">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modstealth" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modstealth" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modstealth" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modstealth" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modstealth" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modstealth">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_survival" type="roll" value="!skill40k @{character_name}, @{survivalCharacteristic}, @{modsurvival}, ?{Target Modifier|0}">
+                            <button name="roll_survival" type="roll" value="!skill40k @{character_name}, survival-u, @{survivalCharacteristic}, @{modsurvival}, ?{Target Modifier|0}">
                                 <span data-i18n="survival-u">survival</span>
                             </button>
                         </div>
@@ -1387,33 +1387,33 @@
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background28">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modsurvival" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modsurvival" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modsurvival" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modsurvival" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modsurvival" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modsurvival">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
                     <div class="sheet-row">
                         <div class="sheet-item sheet-DHBtn2" style="width:40%">
-                            <button name="roll_tech-use" type="roll" value="!skill40k @{character_name}, @{tech-useCharacteristic}, @{modtech-use}, ?{Target Modifier|0}">
+                            <button name="roll_tech-use" type="roll" value="!skill40k @{character_name}, tech-use-u, @{tech-useCharacteristic}, @{modtech-use}, ?{Target Modifier|0}">
                                 <span data-i18n="tech-use-u">tech-use</span>
                             </button>
                         </div>
                         <div class="sheet-item" style="width:20%">
-                            <select class="charaselect" name="attr_tech-useCharacteristic" disabled>
-                                <option value="@{Intelligence}" data-i18n="int-u">Int</option>
+                            <select class="charaselect" name="attr_tech-useCharacteristic">
+                                <option selected value="@{Intelligence}" data-i18n="int-u">Int</option>
                             </select>
                         </div>
                         <div class="sheet-item" style="width:40%">
-                            <select class="advanceselect" name="attr_Background29">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_modtech-use" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_modtech-use" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_modtech-use" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_modtech-use" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_modtech-use" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_modtech-use">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u"  value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u"  value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u"  value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u"  value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1438,12 +1438,12 @@
                             <input name="attr_1stLanguage" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background30">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_1stLanguage" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_1stLanguage" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_1stLanguage" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_1stLanguage" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_1stLanguage" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_1stLanguage">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1456,12 +1456,12 @@
                             <input name="attr_2ndLanguage" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background31">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_2ndLanguage" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_2ndLanguage" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_2ndLanguage" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_2ndLanguage" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_2ndLanguage" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_2ndLanguage">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1474,12 +1474,12 @@
                             <input name="attr_3rdLanguage" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background32">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_3rdLanguage" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_3rdLanguage" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_3rdLanguage" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_3rdLanguage" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_3rdLanguage" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_3rdLanguage">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1503,12 +1503,12 @@
                             <input name="attr_1stTrade" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background33">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_1stTrade" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_1stTrade" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_1stTrade" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_1stTrade" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_1stTrade" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_1stTrade">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1521,12 +1521,12 @@
                             <input name="attr_2ndTrade" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background34">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_2ndTrade" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_2ndTrade" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_2ndTrade" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_2ndTrade" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_2ndTrade" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_2ndTrade">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1539,12 +1539,12 @@
                             <input name="attr_3rdTrade" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background35">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_3rdTrade" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_3rdTrade" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_3rdTrade" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_3rdTrade" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_3rdTrade" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_3rdTrade">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1557,12 +1557,12 @@
                             <input name="attr_4thTrade" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background36">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_4thTrade" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_4thTrade" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_4thTrade" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_4thTrade" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_4thTrade" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_4thTrade">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1588,12 +1588,12 @@
                             <input name="attr_1stCommon" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background37">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_1stCommon" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_1stCommon" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_1stCommon" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_1stCommon" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_1stCommon" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_1stCommon">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1606,12 +1606,12 @@
                             <input name="attr_2ndCommon" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background38">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_2ndCommon" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_2ndCommon" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_2ndCommon" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_2ndCommon" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_2ndCommon" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_2ndCommon">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1624,12 +1624,12 @@
                             <input name="attr_3rdCommon" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background39">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_3rdCommon" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_3rdCommon" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_3rdCommon" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_3rdCommon" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_3rdCommon" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_3rdCommon">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1642,12 +1642,12 @@
                             <input name="attr_4thCommon" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background40">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_4thCommon" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_4thCommon" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_4thCommon" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_4thCommon" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_4thCommon" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_4thCommon">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1669,12 +1669,12 @@
                             <input name="attr_1stScholastic" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background41">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_1stScholastic" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_1stScholastic" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_1stScholastic" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_1stScholastic" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_1stScholastic" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_1stScholastic">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1687,12 +1687,12 @@
                             <input name="attr_2ndScholastic" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background42">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_2ndScholastic" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_2ndScholastic" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_2ndScholastic" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_2ndScholastic" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_2ndScholastic" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_2ndScholastic">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1705,12 +1705,12 @@
                             <input name="attr_3rdScholastic" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background43">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_3rdScholastic" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_3rdScholastic" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_3rdScholastic" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_3rdScholastic" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_3rdScholastic" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_3rdScholastic">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1723,12 +1723,12 @@
                             <input name="attr_4thScholastic" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background44">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_4thScholastic" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_4thScholastic" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_4thScholastic" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_4thScholastic" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_4thScholastic" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_4thScholastic">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1741,12 +1741,12 @@
                             <input name="attr_5thScholastic" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background45">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_5thScholastic" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_5thScholastic" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_5thScholastic" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_5thScholastic" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_5thScholastic" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_5thScholastic">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1759,12 +1759,12 @@
                             <input name="attr_6thScholastic" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background46">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_6thScholastic" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_6thScholastic" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_6thScholastic" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_6thScholastic" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_6thScholastic" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_6thScholastic">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1786,12 +1786,12 @@
                             <input name="attr_1stForbidden" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background47">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_1stForbidden" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_1stForbidden" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_1stForbidden" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_1stForbidden" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_1stForbidden" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_1stForbidden">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1804,12 +1804,12 @@
                             <input name="attr_2ndForbidden" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background48">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_2ndForbidden" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_2ndForbidden" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_2ndForbidden" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_2ndForbidden" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_2ndForbidden" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_2ndForbidden">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1822,12 +1822,12 @@
                             <input name="attr_3rdForbidden" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background49">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_3rdForbidden" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_3rdForbidden" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_3rdForbidden" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_3rdForbidden" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_3rdForbidden" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_3rdForbidden">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1840,12 +1840,12 @@
                             <input name="attr_4thForbidden" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background50">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_4thForbidden" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_4thForbidden" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_4thForbidden" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_4thForbidden" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_4thForbidden" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_4thForbidden">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1858,12 +1858,12 @@
                             <input name="attr_5thForbidden" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background51">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_5thForbidden" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_5thForbidden" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_5thForbidden" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_5thForbidden" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_5thForbidden" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_5thForbidden">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1876,12 +1876,12 @@
                             <input name="attr_6thForbidden" type="text">
                         </div>
                         <div class="sheet-item" style="width:25%">
-                            <select class="advanceselect" name="attr_Background52">
-                                <option selected selected data-i18n="skill-level-0-u" name="attr_6thForbidden" value="-10">unknow (-10)</option>
-                                <option data-i18n="skill-level-1-u" name="attr_6thForbidden" value="10">rookie (+10)</option></option>
-                                <option data-i18n="skill-level-2-u" name="attr_6thForbidden" value="20">amateur (+20)</option>
-                                <option data-i18n="skill-level-3-u" name="attr_6thForbidden" value="30">expert (+30)</option>
-                                <option data-i18n="skill-level-4-u" name="attr_6thForbidden" value="40">expert (+40)</option>
+                            <select class="advanceselect" name="attr_6thForbidden">
+                                <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                                <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                                <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                                <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                                <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                             </select>
                         </div>
                     </div>
@@ -1913,12 +1913,12 @@
                         </select>
                     </div>
                     <div class="sheet-item" style="width:25%">
-                        <select class="advanceselect" name="attr_Background53">
-                            <option selected selected data-i18n="skill-level-0-u" name="attr_advancedskill" value="-10">unknow (-10)</option>
-                            <option data-i18n="skill-level-1-u" name="attr_advancedskill" value="10">rookie (+10)</option></option>
-                            <option data-i18n="skill-level-2-u" name="attr_advancedskill" value="20">amateur (+20)</option>
-                            <option data-i18n="skill-level-3-u" name="attr_advancedskill" value="30">expert (+30)</option>
-                            <option data-i18n="skill-level-4-u" name="attr_advancedskill" value="40">expert (+40)</option>
+                        <select class="advanceselect" name="attr_advancedskill">
+                            <option selected data-i18n="skill-level-0-u" value="-10">unknow (-10)</option>
+                            <option data-i18n="skill-level-1-u" value="10">rookie (+10)</option>
+                            <option data-i18n="skill-level-2-u" value="20">amateur (+20)</option>
+                            <option data-i18n="skill-level-3-u" value="30">expert (+30)</option>
+                            <option data-i18n="skill-level-4-u" value="40">expert (+40)</option>
                         </select>
                     </div>
                 </div>
@@ -2391,7 +2391,7 @@
                             <div class="sheet-item" style="width: 15%;"><span data-i18n="special-u">Special:</span></div>
                             <div class="sheet-item" style="width: 75%;"><input name="attr_Rangedweaponspecial" type="text" /></div>
                             <div class="sheet-item sheet-redbgns" style="width: 10%;">
-                                <button name="roll_Rangedhit" type="roll" value="***@{character_name} fires @{rangedweaponname}!*** !roll40k @{character_name}, @{BallisticSkill}, [[(?{Aim | Half aim (+10),+10| No aim (+0),+0 | Full aim (+20),+20} + ?{Range | Point Blank (+30),+30 | Short Range (+10),+10 | Standard range (+0),+0 | Long Range (-10),-10 | Extreme Range (-30),-30} + ?{Rate of Fire/Attack Type|Standard (+10),+10 | Semi auto (+0),+0 | Full Auto (-10),-10 | Called Shot (-20),-20 | Suppressing Fire (-20),-20} + ?{Modifier|0})]] !ammo @{character_id} repeating_Rangedweapons_@{my_hidden_row_id}_Rangedweaponclip [[?{Ammo?|Single,-1|Semi-Auto,-@{Rangedweaponsemi}|Full Auto,-@{Rangedweaponfull}}*?{Firing Mode?|Normal,1|Overcharge,2|Maximal,3|Overload,4}]]">
+                                <button name="roll_Rangedhit" type="roll" value="!roll40k @{character_name}, @{BallisticSkill}, [[(?{Aim | Half aim (+10),+10| No aim (+0),+0 | Full aim (+20),+20} + ?{Range | Point Blank (+30),+30 | Short Range (+10),+10 | Standard range (+0),+0 | Long Range (-10),-10 | Extreme Range (-30),-30} + ?{Rate of Fire/Attack Type|Standard (+10),+10 | Semi auto (+0),+0 | Full Auto (-10),-10 | Called Shot (-20),-20 | Suppressing Fire (-20),-20} + ?{Modifier|0})]] !ammo @{character_id} repeating_Rangedweapons_@{my_hidden_row_id}_Rangedweaponclip [[?{Ammo?|Single,-1|Semi-Auto,-@{Rangedweaponsemi}|Full Auto,-@{Rangedweaponfull}}*?{Firing Mode?|Normal,1|Overcharge,2|Maximal,3|Overload,4}]]">
                                     <span data-i18n="hit-u">Hit</span>
                                 </button>
                             </div>
